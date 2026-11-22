@@ -5,134 +5,1590 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f2ff;--sf:#fff;--tx:#1a1433;--mu:#6a6288;--ln:#e6dff9;--rose:#ff4f87;--peach:#ff9a6c;--lil:#8b6cf6;--mint:#1fae82;--ink:#120c30;--d:Unbounded,Onest,system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e0a22;--sf:#18123a;--tx:#f5f0ff;--mu:#a9a2cc;--ln:#2c2458}}
-:root[data-theme=dark]{--bg:#0e0a22;--sf:#18123a;--tx:#f5f0ff;--mu:#a9a2cc;--ln:#2c2458}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.55 Onest,system-ui,sans-serif}
-h1,h2,h3{font-family:var(--d);font-weight:700;line-height:1.1;margin:0;letter-spacing:-.02em}
-.logo{font:800 17px var(--d);color:#fff}.logo i{font-style:normal;background:linear-gradient(90deg,var(--rose),var(--peach));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-radius:0 0 44px 44px}
-.aur{position:absolute;inset:-20%;background:radial-gradient(40% 40% at 18% 30%,#ff4f8799,#0000),radial-gradient(40% 40% at 82% 18%,#8b6cf6bb,#0000),radial-gradient(50% 50% at 60% 95%,#ff9a6c66,#0000);filter:blur(30px)}
-.nv,.hg{position:relative;max-width:1080px;margin:0 auto;padding:20px}
-.hg{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-bottom:76px}
-.hg h1{font-size:clamp(30px,5.2vw,56px)}.hg h1 em{font-style:normal;background:linear-gradient(90deg,#ff7aa8,#ffb38a);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:18px;color:#d9d1f5;max-width:46ch;margin:18px 0 26px}
-.cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff4f87,#ff9a6c);color:#fff;font:700 17px Onest;padding:18px 30px;border-radius:99px;cursor:pointer;box-shadow:0 14px 40px #ff4f8766;transition:transform .2s}
-.cta:hover{transform:translateY(-2px)}.cta:focus-within{outline:3px solid #fff;outline-offset:3px}.cta input{position:absolute;opacity:0;width:1px;height:1px}
-.pr{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:18px;font-size:13px;color:#cfc6f0}
-.ph{position:relative;background:#ffffff14;border:1px solid #ffffff30;backdrop-filter:blur(16px);border-radius:34px;padding:20px;display:flex;flex-direction:column;gap:9px}
-.ph .t{font:700 12px Onest;color:#cfc6f0}
-.bu{padding:10px 14px;border-radius:18px;max-width:84%;font-size:14px;background:#ffffff1f}.bu.r{align-self:flex-end;background:linear-gradient(135deg,#ff4f87,#c13ad6)}
-.bu.s b{display:block;font:800 30px var(--d);background:linear-gradient(90deg,#fff,#ffc2d9);-webkit-background-clip:text;background-clip:text;color:transparent}
-.fc{position:absolute;right:-8px;bottom:-26px;background:#fff;color:#1a1433;border-radius:20px;padding:12px 16px;box-shadow:0 18px 40px #0006;font:800 22px var(--d);animation:fl 4s ease-in-out infinite}.fc small{display:block;font:500 11px Onest;color:#6a6288}
-@keyframes fl{50%{transform:translateY(-8px)}}
-.sec{max-width:1080px;margin:0 auto;padding:68px 20px 0}.sec>h2{font-size:clamp(24px,3.6vw,36px);max-width:20ch}.sec>p{color:var(--mu);max-width:56ch}
-.gr{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-.cd{background:var(--sf);border:1px solid var(--ln);border-radius:26px;padding:22px}.cd h3{font-size:16px;margin:12px 0 6px}.cd p{margin:0;color:var(--mu);font-size:14px}
-.ic{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,#ff4f8722,#8b6cf633)}
-.st{font:800 15px var(--d);color:var(--rose)}
-.pv{margin-top:68px;border-radius:32px;padding:34px;background:linear-gradient(135deg,#1b1240,#3a1766);color:#fff}.pv p{color:#d9d1f5;max-width:60ch}
-details{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:16px 20px;margin-top:10px}summary{font-weight:700;cursor:pointer}details p{color:var(--mu);margin:10px 0 0}
-footer{text-align:center;color:var(--mu);font-size:13px;padding:50px 20px 40px}
-#err{color:#ffb3c4;font-size:14px;margin-top:12px;min-height:20px}
-@media(max-width:820px){.hg{grid-template-columns:1fr;gap:54px}.gr{grid-template-columns:1fr}}
-#chat{position:fixed;inset:0;z-index:9;background:var(--ink);color:#fff;display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px);overflow:hidden}
-#chat header{position:relative;padding:16px 20px 12px;font:700 16px var(--d)}#chat header small{display:block;font:400 13px Onest;color:#cfc6f0;margin-top:4px}
-#pg{height:4px;background:#ffffff20;margin:0 20px;border-radius:4px;position:relative}#pg i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#ff4f87,#ff9a6c);transition:width .5s}
-#msgs{position:relative;flex:1;overflow:auto;padding:16px 20px;display:flex;flex-direction:column;gap:8px;max-width:560px;width:100%;margin:0 auto}
-.b{background:#ffffff1c;border:1px solid #ffffff22;backdrop-filter:blur(10px);border-radius:20px 20px 20px 6px;padding:10px 15px;max-width:84%;align-self:flex-start;animation:in .3s}.b .n{display:block;font:700 12px Onest;margin-bottom:2px;color:#ffb3cf}
-.b.me{align-self:flex-end;background:linear-gradient(135deg,#ff4f87,#c13ad6);border:0;border-radius:20px 20px 6px 20px}
-.b.btns{background:none;border:0;backdrop-filter:none;padding:0;display:flex;gap:8px;max-width:100%;align-self:flex-end}
-.b.btns button{border:1px solid #ffffff55;border-radius:99px;padding:11px 20px;font:700 15px Onest;background:#fff;color:#2a1670;cursor:pointer}
-.b.stat big{display:block;font:800 34px var(--d);background:linear-gradient(90deg,#fff,#ffb3cf);-webkit-background-clip:text;background-clip:text;color:transparent}.b.stat small{color:#cfc6f0;font-size:12px}
-.dots:after{content:"•••";letter-spacing:3px;color:#cfc6f0;animation:bl 1s infinite}@keyframes bl{50%{opacity:.3}}@keyframes in{from{transform:translateY(8px);opacity:0}}
-#go{margin:6px 20px 22px;max-width:520px;align-self:center;width:calc(100% - 40px);display:none;justify-content:center;border:0}
-#rep{display:none}.rw{max-width:600px;margin:0 auto;padding:0 18px 60px}
-.rh{background:linear-gradient(135deg,#1b1240,#5a1d7a 55%,#c0307a);color:#fff;border-radius:0 0 40px 40px;padding:26px 20px 38px}.rh>div{max-width:600px;margin:0 auto}
-.rh h1{font-size:clamp(26px,7vw,40px);margin:20px 0 16px}.rh h1 em{font-style:normal;color:#ffb38a}
-.ch{font-size:24px;margin:50px 0 6px}.sub{color:var(--mu);font-size:14px;margin:4px 0 14px}
-.chip{display:inline-block;background:#ffffff22;border:1px solid #ffffff33;border-radius:99px;padding:6px 14px;font-size:12px;font-weight:700;margin:0 6px 6px 0}
-.rb{border:1px solid #ffffff55;background:#ffffff18;color:#fff;border-radius:99px;padding:10px 18px;font:700 13px Onest;cursor:pointer;margin-top:6px}
-.p{background:var(--sf);border:1px solid var(--ln);border-radius:28px;padding:22px;margin:12px 0}.p h3{font-size:15px;margin-bottom:10px}
-.gp{background:linear-gradient(135deg,#2a1670,#c0307a);color:#fff;border:0;text-align:center}
-.rg{--s:120px;width:var(--s);height:var(--s);border-radius:50%;background:conic-gradient(var(--c) calc(var(--p)*1%),#ffffff2a 0);display:grid;place-items:center;margin:8px auto}
-.rg b{width:calc(var(--s) - 22px);height:calc(var(--s) - 22px);border-radius:50%;background:#2b1360;color:#fff;display:grid;place-items:center;font:800 26px var(--d)}
-.p:not(.gp) .rg b{background:var(--sf);color:var(--tx);font-size:20px}.p:not(.gp) .rg{--s:96px;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--ln) 0)}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.g2 .p{margin:0;text-align:center}
-.m{display:grid;grid-template-columns:128px 1fr 42px;gap:12px;align-items:center;margin:12px 0;font-size:14px}.m i{height:10px;border-radius:9px;background:var(--ln);display:block;overflow:hidden}.m i b{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--lil),var(--rose))}.m span:last-child{font:700 14px var(--d);text-align:right}
-.dl{display:flex;justify-content:space-between;font-size:14px}.dl b{font:800 18px var(--d)}.bar{height:14px;border-radius:9px;background:var(--rose);overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--lil)}
-.qt{margin:8px 0;padding:12px 16px;border-radius:16px;background:linear-gradient(135deg,#8b6cf61f,#ff4f871f);font-size:14px}.qt small{display:block;color:var(--mu);font-size:12px;margin-top:4px}
-.bb{padding:10px 14px;border-radius:18px;margin:6px 0;max-width:86%;font-size:14px;background:var(--ln)}.bb.r{margin-left:auto;background:linear-gradient(135deg,#ff4f8733,#8b6cf633)}.bb small{display:block;color:var(--mu);font-size:11px}
-.sc{display:flex;justify-content:space-around;align-items:center;font:800 48px var(--d)}.sc small{display:block;font:500 12px Onest;color:var(--mu)}
-.fr{background:linear-gradient(135deg,#ff6b7d,#e8325a);color:#fff;border:0}.fg{background:linear-gradient(135deg,#b6e86a,#6fcf5c);color:#10310a;border:0}
-.fr .qt,.fg .qt{background:#ffffff33;color:inherit}.fr small,.fg small{color:inherit!important;opacity:.85}
-.cert{text-align:center;border:2px solid transparent;background:linear-gradient(var(--sf),var(--sf)) padding-box,linear-gradient(135deg,var(--rose),var(--peach),var(--lil)) border-box}
-.cert .em{font-size:54px}.cert h3{font-size:22px;margin:8px 0}
-.inv{text-align:center;border:1px solid var(--ln);outline:1px solid var(--ln);outline-offset:-10px}.inv h3{font-size:22px;margin-bottom:14px}.inv .qt{text-align:left}
-.tr{display:flex;gap:10px}.tc{perspective:800px;flex:1;aspect-ratio:2/3;border:0;background:none;padding:0;cursor:pointer;color:inherit}
-.ti{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}.tc.f .ti{transform:rotateY(180deg)}
-.fa,.bk{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:10px;text-align:center}
-.fa{background:linear-gradient(160deg,#6a3df0,#ff4f87);color:#fff;font-size:34px}.bk{transform:rotateY(180deg);background:var(--sf);border:1px solid var(--ln);font-size:11.5px;gap:6px}.bk b{font:700 13px var(--d)}
-:focus-visible{outline:3px solid var(--lil);outline-offset:2px}
-.art{position:relative;padding:10px}.art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 50px #0009)}
-.gc{position:absolute;background:#ffffff26;border:1px solid #ffffff4d;backdrop-filter:blur(14px);border-radius:20px;padding:11px 16px;font:800 22px var(--d);color:#fff;animation:fl 5s ease-in-out infinite;box-shadow:0 14px 40px #0004}.gc small{display:block;font:500 11px Onest;color:#eadfff}
-.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(#ffffff12 1px,#0000 1.5px) 0 0/22px 22px;opacity:.5;pointer-events:none}
-.bn{position:relative;overflow:hidden;border-radius:32px;margin:58px 0 10px;padding:30px 24px;min-height:160px;display:flex;align-items:flex-end;background:linear-gradient(135deg,var(--g));color:#fff;box-shadow:0 22px 50px -18px #6a3df088}
-.bn:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 88% 8%,#ffffff55,#0000)}
-.bn h2{position:relative;font-size:clamp(23px,6.4vw,32px);max-width:11ch;text-shadow:0 2px 16px #0004}
-.be{position:absolute;right:12px;top:4px;font-size:104px;line-height:1;filter:drop-shadow(0 14px 18px #0006);transform:rotate(-8deg)}
-.p{box-shadow:0 14px 34px -16px #6a3df055}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
-.m i b{transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}.m.in i b{transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root {
+    --bg: #f6f2ff;
+    --sf: #fff;
+    --tx: #1a1433;
+    --mu: #6a6288;
+    --ln: #e6dff9;
+    --rose: #ff4f87;
+    --peach: #ff9a6c;
+    --lil: #8b6cf6;
+    --mint: #1fae82;
+    --ink: #120c30;
+    --d: Unbounded, Onest, system-ui, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px)
+}
 
-:root{--o1:#ffd3e6;--o2:#d6ccff}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--o1:#5a1d7a66;--o2:#2a1670aa}}
-:root[data-theme=dark]{--o1:#5a1d7a66;--o2:#2a1670aa}
-body{background:radial-gradient(60% 38% at 8% 0,var(--o1),#0000),radial-gradient(50% 36% at 100% 12%,var(--o2),#0000),var(--bg);background-attachment:fixed}
-.nv{display:flex;justify-content:space-between;align-items:center}.nv small{color:#cfc6f0;font-weight:500}
-.cd{transition:transform .25s,box-shadow .25s}.cd:hover{transform:translateY(-4px);box-shadow:0 22px 44px -20px #6a3df088}
-.mq{overflow:hidden;margin:-24px 0 0;padding:14px 0;background:linear-gradient(90deg,#ff4f87,#ff9a6c,#8b6cf6);color:#fff;font:700 14px Onest;transform:rotate(-1.2deg);position:relative;z-index:2}
-.mq div{display:flex;gap:30px;width:max-content;animation:mqa 45s linear infinite}.mq span:after{content:"✦";margin-left:30px;opacity:.7}@keyframes mqa{to{transform:translateX(-50%)}}
-.bt{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:26px}.bt .cd{grid-column:span 2}.bt .w{grid-column:span 3}.bt .x{grid-column:span 4;background:linear-gradient(135deg,#2a1670,#c0307a);color:#fff;border:0}.bt .x p{color:#eadfff}
-@media(max-width:820px){.bt{grid-template-columns:1fr}.bt .cd,.bt .w,.bt .x{grid-column:auto}}
-.rh{position:relative;overflow:hidden}.rh:before{content:"";position:absolute;width:440px;height:440px;right:-130px;top:-170px;background:radial-gradient(#ff9a6c88,#0000 65%)}
-.tn{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:6;display:flex;gap:6px;overflow:auto;padding:6px;margin:-22px 0 0;border-radius:99px;background:color-mix(in srgb,var(--sf) 82%,transparent);backdrop-filter:blur(14px);border:1px solid var(--ln);box-shadow:0 14px 34px -14px #6a3df077}
-.tn a{flex:1;white-space:nowrap;text-align:center;padding:10px 14px;border-radius:99px;font:700 13px Onest;color:var(--tx);text-decoration:none}.tn a:hover{background:var(--ln)}
-.sm{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}.sm .rg{margin:0}.sm h3{font-size:20px;margin-bottom:8px}.sm ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px}
-.gh{font:700 14px Onest;color:var(--mu);margin:28px 4px 8px}
-.dg{border-left:6px solid var(--c)}.l0{--c:#1fae82}.l1{--c:#f5a623}.l2{--c:#ef4565}
-.dh{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.dh h3{margin:0}
-.bd{display:inline-block;font:700 11px Onest;border-radius:99px;padding:4px 10px;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c);white-space:nowrap}
-.dbig{font:800 30px var(--d);margin:10px 0 4px;color:var(--c)}.dg p{margin:0;color:var(--mu);font-size:14px}
-.tp{margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--ln);font-size:13.5px}
-.hs{display:flex;align-items:flex-end;gap:3px;height:76px;margin-top:14px}.hs b{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--rose),var(--lil));min-height:3px}
-.hl{display:flex;justify-content:space-between;font-size:11px;color:var(--mu);margin-top:4px}
+@media(prefers-color-scheme:dark) {
+    :root:not([data-theme=light]) {
+        --bg: #0e0a22;
+        --sf: #18123a;
+        --tx: #f5f0ff;
+        --mu: #a9a2cc;
+        --ln: #2c2458
+    }
+}
 
-.aur{pointer-events:none}
-#go{position:relative;z-index:3;cursor:pointer}
-#chat header,#pg,#msgs{z-index:2}
-#msgs{scrollbar-width:thin;scrollbar-color:#ffffff55 transparent}
-#msgs::-webkit-scrollbar{width:6px}#msgs::-webkit-scrollbar-thumb{background:#ffffff55;border-radius:6px}
+:root[data-theme=dark] {
+    --bg: #0e0a22;
+    --sf: #18123a;
+    --tx: #f5f0ff;
+    --mu: #a9a2cc;
+    --ln: #2c2458
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--tx);
+    font: 400 16px/1.55 Onest, system-ui, sans-serif
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--d);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -.02em
+}
+
+.logo {
+    font: 800 17px var(--d);
+    color: #fff
+}
+
+.logo i {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--rose), var(--peach));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 0 0 44px 44px
+}
+
+.aur {
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(40% 40% at 18% 30%, #ff4f8799, #0000), radial-gradient(40% 40% at 82% 18%, #8b6cf6bb, #0000), radial-gradient(50% 50% at 60% 95%, #ff9a6c66, #0000);
+    filter: blur(30px)
+}
+
+.nv,
+.hg {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px
+}
+
+.hg {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 76px
+}
+
+.hg h1 {
+    font-size: clamp(30px, 5.2vw, 56px)
+}
+
+.hg h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, #ff7aa8, #ffb38a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent
+}
+
+.lead {
+    font-size: 18px;
+    color: #d9d1f5;
+    max-width: 46ch;
+    margin: 18px 0 26px
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff4f87, #ff9a6c);
+    color: #fff;
+    font: 700 17px Onest;
+    padding: 18px 30px;
+    border-radius: 99px;
+    cursor: pointer;
+    box-shadow: 0 14px 40px #ff4f8766;
+    transition: transform .2s
+}
+
+.cta:hover {
+    transform: translateY(-2px)
+}
+
+.cta:focus-within {
+    outline: 3px solid #fff;
+    outline-offset: 3px
+}
+
+.cta input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px
+}
+
+.pr {
+    display: flex;
+    gap: 8px 18px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #cfc6f0
+}
+
+.ph {
+    position: relative;
+    background: #ffffff14;
+    border: 1px solid #ffffff30;
+    backdrop-filter: blur(16px);
+    border-radius: 34px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px
+}
+
+.ph .t {
+    font: 700 12px Onest;
+    color: #cfc6f0
+}
+
+.bu {
+    padding: 10px 14px;
+    border-radius: 18px;
+    max-width: 84%;
+    font-size: 14px;
+    background: #ffffff1f
+}
+
+.bu.r {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #ff4f87, #c13ad6)
+}
+
+.bu.s b {
+    display: block;
+    font: 800 30px var(--d);
+    background: linear-gradient(90deg, #fff, #ffc2d9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent
+}
+
+.fc {
+    position: absolute;
+    right: -8px;
+    bottom: -26px;
+    background: #fff;
+    color: #1a1433;
+    border-radius: 20px;
+    padding: 12px 16px;
+    box-shadow: 0 18px 40px #0006;
+    font: 800 22px var(--d);
+    animation: fl 4s ease-in-out infinite
+}
+
+.fc small {
+    display: block;
+    font: 500 11px Onest;
+    color: #6a6288
+}
+
+@keyframes fl {
+    50% {
+        transform: translateY(-8px)
+    }
+}
+
+.sec {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 68px 20px 0
+}
+
+.sec>h2 {
+    font-size: clamp(24px, 3.6vw, 36px);
+    max-width: 20ch
+}
+
+.sec>p {
+    color: var(--mu);
+    max-width: 56ch
+}
+
+.gr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 26px
+}
+
+.cd {
+    background: var(--sf);
+    border: 1px solid var(--ln);
+    border-radius: 26px;
+    padding: 22px
+}
+
+.cd h3 {
+    font-size: 16px;
+    margin: 12px 0 6px
+}
+
+.cd p {
+    margin: 0;
+    color: var(--mu);
+    font-size: 14px
+}
+
+.ic {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    background: linear-gradient(135deg, #ff4f8722, #8b6cf633)
+}
+
+.st {
+    font: 800 15px var(--d);
+    color: var(--rose)
+}
+
+.pv {
+    margin-top: 68px;
+    border-radius: 32px;
+    padding: 34px;
+    background: linear-gradient(135deg, #1b1240, #3a1766);
+    color: #fff
+}
+
+.pv p {
+    color: #d9d1f5;
+    max-width: 60ch
+}
+
+details {
+    background: var(--sf);
+    border: 1px solid var(--ln);
+    border-radius: 18px;
+    padding: 16px 20px;
+    margin-top: 10px
+}
+
+summary {
+    font-weight: 700;
+    cursor: pointer
+}
+
+details p {
+    color: var(--mu);
+    margin: 10px 0 0
+}
+
+footer {
+    text-align: center;
+    color: var(--mu);
+    font-size: 13px;
+    padding: 50px 20px 40px
+}
+
+#err {
+    color: #ffb3c4;
+    font-size: 14px;
+    margin-top: 12px;
+    min-height: 20px
+}
+
+@media(max-width:820px) {
+    .hg {
+        grid-template-columns: 1fr;
+        gap: 54px
+    }
+
+    .gr {
+        grid-template-columns: 1fr
+    }
+}
+
+#chat {
+    position: fixed;
+    inset: 0;
+    z-index: 9;
+    background: var(--ink);
+    color: #fff;
+    display: none;
+    flex-direction: column;
+    padding-top: env(safe-area-inset-top, 0px);
+    overflow: hidden
+}
+
+#chat header {
+    position: relative;
+    padding: 16px 20px 12px;
+    font: 700 16px var(--d)
+}
+
+#chat header small {
+    display: block;
+    font: 400 13px Onest;
+    color: #cfc6f0;
+    margin-top: 4px
+}
+
+#pg {
+    height: 4px;
+    background: #ffffff20;
+    margin: 0 20px;
+    border-radius: 4px;
+    position: relative
+}
+
+#pg i {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #ff4f87, #ff9a6c);
+    transition: width .5s
+}
+
+#msgs {
+    position: relative;
+    flex: 1;
+    overflow: auto;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto
+}
+
+.b {
+    background: #ffffff1c;
+    border: 1px solid #ffffff22;
+    backdrop-filter: blur(10px);
+    border-radius: 20px 20px 20px 6px;
+    padding: 10px 15px;
+    max-width: 84%;
+    align-self: flex-start;
+    animation: in .3s
+}
+
+.b .n {
+    display: block;
+    font: 700 12px Onest;
+    margin-bottom: 2px;
+    color: #ffb3cf
+}
+
+.b.me {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #ff4f87, #c13ad6);
+    border: 0;
+    border-radius: 20px 20px 6px 20px
+}
+
+.b.btns {
+    background: none;
+    border: 0;
+    backdrop-filter: none;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+    max-width: 100%;
+    align-self: flex-end
+}
+
+.b.btns button {
+    border: 1px solid #ffffff55;
+    border-radius: 99px;
+    padding: 11px 20px;
+    font: 700 15px Onest;
+    background: #fff;
+    color: #2a1670;
+    cursor: pointer
+}
+
+.b.stat big {
+    display: block;
+    font: 800 34px var(--d);
+    background: linear-gradient(90deg, #fff, #ffb3cf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent
+}
+
+.b.stat small {
+    color: #cfc6f0;
+    font-size: 12px
+}
+
+.dots:after {
+    content: "•••";
+    letter-spacing: 3px;
+    color: #cfc6f0;
+    animation: bl 1s infinite
+}
+
+@keyframes bl {
+    50% {
+        opacity: .3
+    }
+}
+
+@keyframes in {
+    from {
+        transform: translateY(8px);
+        opacity: 0
+    }
+}
+
+#go {
+    margin: 6px 20px 22px;
+    max-width: 520px;
+    align-self: center;
+    width: calc(100% - 40px);
+    display: none;
+    justify-content: center;
+    border: 0
+}
+
+#rep {
+    display: none
+}
+
+.rw {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 18px 60px
+}
+
+.rh {
+    background: linear-gradient(135deg, #1b1240, #5a1d7a 55%, #c0307a);
+    color: #fff;
+    border-radius: 0 0 40px 40px;
+    padding: 26px 20px 38px
+}
+
+.rh>div {
+    max-width: 600px;
+    margin: 0 auto
+}
+
+.rh h1 {
+    font-size: clamp(26px, 7vw, 40px);
+    margin: 20px 0 16px
+}
+
+.rh h1 em {
+    font-style: normal;
+    color: #ffb38a
+}
+
+.ch {
+    font-size: 24px;
+    margin: 50px 0 6px
+}
+
+.sub {
+    color: var(--mu);
+    font-size: 14px;
+    margin: 4px 0 14px
+}
+
+.chip {
+    display: inline-block;
+    background: #ffffff22;
+    border: 1px solid #ffffff33;
+    border-radius: 99px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 6px 6px 0
+}
+
+.rb {
+    border: 1px solid #ffffff55;
+    background: #ffffff18;
+    color: #fff;
+    border-radius: 99px;
+    padding: 10px 18px;
+    font: 700 13px Onest;
+    cursor: pointer;
+    margin-top: 6px
+}
+
+.p {
+    background: var(--sf);
+    border: 1px solid var(--ln);
+    border-radius: 28px;
+    padding: 22px;
+    margin: 12px 0
+}
+
+.p h3 {
+    font-size: 15px;
+    margin-bottom: 10px
+}
+
+.gp {
+    background: linear-gradient(135deg, #2a1670, #c0307a);
+    color: #fff;
+    border: 0;
+    text-align: center
+}
+
+.rg {
+    --s: 120px;
+    width: var(--s);
+    height: var(--s);
+    border-radius: 50%;
+    background: conic-gradient(var(--c) calc(var(--p)*1%), #ffffff2a 0);
+    display: grid;
+    place-items: center;
+    margin: 8px auto
+}
+
+.rg b {
+    width: calc(var(--s) - 22px);
+    height: calc(var(--s) - 22px);
+    border-radius: 50%;
+    background: #2b1360;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font: 800 26px var(--d)
+}
+
+.p:not(.gp) .rg b {
+    background: var(--sf);
+    color: var(--tx);
+    font-size: 20px
+}
+
+.p:not(.gp) .rg {
+    --s: 96px;
+    background: conic-gradient(var(--c) calc(var(--p)*1%), var(--ln) 0)
+}
+
+.g2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px
+}
+
+.g2 .p {
+    margin: 0;
+    text-align: center
+}
+
+.m {
+    display: grid;
+    grid-template-columns: 128px 1fr 42px;
+    gap: 12px;
+    align-items: center;
+    margin: 12px 0;
+    font-size: 14px
+}
+
+.m i {
+    height: 10px;
+    border-radius: 9px;
+    background: var(--ln);
+    display: block;
+    overflow: hidden
+}
+
+.m i b {
+    display: block;
+    height: 100%;
+    border-radius: 9px;
+    background: linear-gradient(90deg, var(--lil), var(--rose))
+}
+
+.m span:last-child {
+    font: 700 14px var(--d);
+    text-align: right
+}
+
+.dl {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px
+}
+
+.dl b {
+    font: 800 18px var(--d)
+}
+
+.bar {
+    height: 14px;
+    border-radius: 9px;
+    background: var(--rose);
+    overflow: hidden;
+    margin: 8px 0
+}
+
+.bar i {
+    display: block;
+    height: 100%;
+    background: var(--lil)
+}
+
+.qt {
+    margin: 8px 0;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #8b6cf61f, #ff4f871f);
+    font-size: 14px
+}
+
+.qt small {
+    display: block;
+    color: var(--mu);
+    font-size: 12px;
+    margin-top: 4px
+}
+
+.bb {
+    padding: 10px 14px;
+    border-radius: 18px;
+    margin: 6px 0;
+    max-width: 86%;
+    font-size: 14px;
+    background: var(--ln)
+}
+
+.bb.r {
+    margin-left: auto;
+    background: linear-gradient(135deg, #ff4f8733, #8b6cf633)
+}
+
+.bb small {
+    display: block;
+    color: var(--mu);
+    font-size: 11px
+}
+
+.sc {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font: 800 48px var(--d)
+}
+
+.sc small {
+    display: block;
+    font: 500 12px Onest;
+    color: var(--mu)
+}
+
+.fr {
+    background: linear-gradient(135deg, #ff6b7d, #e8325a);
+    color: #fff;
+    border: 0
+}
+
+.fg {
+    background: linear-gradient(135deg, #b6e86a, #6fcf5c);
+    color: #10310a;
+    border: 0
+}
+
+.fr .qt,
+.fg .qt {
+    background: #ffffff33;
+    color: inherit
+}
+
+.fr small,
+.fg small {
+    color: inherit !important;
+    opacity: .85
+}
+
+.cert {
+    text-align: center;
+    border: 2px solid transparent;
+    background: linear-gradient(var(--sf), var(--sf)) padding-box, linear-gradient(135deg, var(--rose), var(--peach), var(--lil)) border-box
+}
+
+.cert .em {
+    font-size: 54px
+}
+
+.cert h3 {
+    font-size: 22px;
+    margin: 8px 0
+}
+
+.inv {
+    text-align: center;
+    border: 1px solid var(--ln);
+    outline: 1px solid var(--ln);
+    outline-offset: -10px
+}
+
+.inv h3 {
+    font-size: 22px;
+    margin-bottom: 14px
+}
+
+.inv .qt {
+    text-align: left
+}
+
+.tr {
+    display: flex;
+    gap: 10px
+}
+
+.tc {
+    perspective: 800px;
+    flex: 1;
+    aspect-ratio: 2/3;
+    border: 0;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit
+}
+
+.ti {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .7s;
+    transform-style: preserve-3d
+}
+
+.tc.f .ti {
+    transform: rotateY(180deg)
+}
+
+.fa,
+.bk {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center
+}
+
+.fa {
+    background: linear-gradient(160deg, #6a3df0, #ff4f87);
+    color: #fff;
+    font-size: 34px
+}
+
+.bk {
+    transform: rotateY(180deg);
+    background: var(--sf);
+    border: 1px solid var(--ln);
+    font-size: 11.5px;
+    gap: 6px
+}
+
+.bk b {
+    font: 700 13px var(--d)
+}
+
+:focus-visible {
+    outline: 3px solid var(--lil);
+    outline-offset: 2px
+}
+
+.art {
+    position: relative;
+    padding: 10px
+}
+
+.art svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 30px 50px #0009)
+}
+
+.gc {
+    position: absolute;
+    background: #ffffff26;
+    border: 1px solid #ffffff4d;
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 11px 16px;
+    font: 800 22px var(--d);
+    color: #fff;
+    animation: fl 5s ease-in-out infinite;
+    box-shadow: 0 14px 40px #0004
+}
+
+.gc small {
+    display: block;
+    font: 500 11px Onest;
+    color: #eadfff
+}
+
+.hero:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(#ffffff12 1px, #0000 1.5px) 0 0/22px 22px;
+    opacity: .5;
+    pointer-events: none
+}
+
+.bn {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    margin: 58px 0 10px;
+    padding: 30px 24px;
+    min-height: 160px;
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(135deg, var(--g));
+    color: #fff;
+    box-shadow: 0 22px 50px -18px #6a3df088
+}
+
+.bn:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 80% at 88% 8%, #ffffff55, #0000)
+}
+
+.bn h2 {
+    position: relative;
+    font-size: clamp(23px, 6.4vw, 32px);
+    max-width: 11ch;
+    text-shadow: 0 2px 16px #0004
+}
+
+.be {
+    position: absolute;
+    right: 12px;
+    top: 4px;
+    font-size: 104px;
+    line-height: 1;
+    filter: drop-shadow(0 14px 18px #0006);
+    transform: rotate(-8deg)
+}
+
+.p {
+    box-shadow: 0 14px 34px -16px #6a3df055
+}
+
+.rv {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .8s, transform .8s cubic-bezier(.2, .8, .2, 1)
+}
+
+.rv.in {
+    opacity: 1;
+    transform: none
+}
+
+.m i b {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.1s cubic-bezier(.2, .8, .2, 1)
+}
+
+.m.in i b {
+    transform: none
+}
+
+@media(prefers-reduced-motion:reduce) {
+    * {
+        animation: none !important;
+        transition: none !important
+    }
+}
+
+:root {
+    --o1: #ffd3e6;
+    --o2: #d6ccff
+}
+
+@media(prefers-color-scheme:dark) {
+    :root:not([data-theme=light]) {
+        --o1: #5a1d7a66;
+        --o2: #2a1670aa
+    }
+}
+
+:root[data-theme=dark] {
+    --o1: #5a1d7a66;
+    --o2: #2a1670aa
+}
+
+body {
+    background: radial-gradient(60% 38% at 8% 0, var(--o1), #0000), radial-gradient(50% 36% at 100% 12%, var(--o2), #0000), var(--bg);
+    background-attachment: fixed
+}
+
+.nv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.nv small {
+    color: #cfc6f0;
+    font-weight: 500
+}
+
+.cd {
+    transition: transform .25s, box-shadow .25s
+}
+
+.cd:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 44px -20px #6a3df088
+}
+
+.mq {
+    overflow: hidden;
+    margin: -24px 0 0;
+    padding: 14px 0;
+    background: linear-gradient(90deg, #ff4f87, #ff9a6c, #8b6cf6);
+    color: #fff;
+    font: 700 14px Onest;
+    transform: rotate(-1.2deg);
+    position: relative;
+    z-index: 2
+}
+
+.mq div {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: mqa 45s linear infinite
+}
+
+.mq span:after {
+    content: "✦";
+    margin-left: 30px;
+    opacity: .7
+}
+
+@keyframes mqa {
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+.bt {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    margin-top: 26px
+}
+
+.bt .cd {
+    grid-column: span 2
+}
+
+.bt .w {
+    grid-column: span 3
+}
+
+.bt .x {
+    grid-column: span 4;
+    background: linear-gradient(135deg, #2a1670, #c0307a);
+    color: #fff;
+    border: 0
+}
+
+.bt .x p {
+    color: #eadfff
+}
+
+@media(max-width:820px) {
+    .bt {
+        grid-template-columns: 1fr
+    }
+
+    .bt .cd,
+    .bt .w,
+    .bt .x {
+        grid-column: auto
+    }
+}
+
+.rh {
+    position: relative;
+    overflow: hidden
+}
+
+.rh:before {
+    content: "";
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    right: -130px;
+    top: -170px;
+    background: radial-gradient(#ff9a6c88, #0000 65%)
+}
+
+.tn {
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 8px);
+    z-index: 6;
+    display: flex;
+    gap: 6px;
+    overflow: auto;
+    padding: 6px;
+    margin: -22px 0 0;
+    border-radius: 99px;
+    background: color-mix(in srgb, var(--sf) 82%, transparent);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--ln);
+    box-shadow: 0 14px 34px -14px #6a3df077
+}
+
+.tn a {
+    flex: 1;
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 99px;
+    font: 700 13px Onest;
+    color: var(--tx);
+    text-decoration: none
+}
+
+.tn a:hover {
+    background: var(--ln)
+}
+
+.sm {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: center
+}
+
+.sm .rg {
+    margin: 0
+}
+
+.sm h3 {
+    font-size: 20px;
+    margin-bottom: 8px
+}
+
+.sm ul {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 6px;
+    font-size: 14px
+}
+
+.gh {
+    font: 700 14px Onest;
+    color: var(--mu);
+    margin: 28px 4px 8px
+}
+
+.dg {
+    border-left: 6px solid var(--c)
+}
+
+.l0 {
+    --c: #1fae82
+}
+
+.l1 {
+    --c: #f5a623
+}
+
+.l2 {
+    --c: #ef4565
+}
+
+.dh {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-start
+}
+
+.dh h3 {
+    margin: 0
+}
+
+.bd {
+    display: inline-block;
+    font: 700 11px Onest;
+    border-radius: 99px;
+    padding: 4px 10px;
+    background: color-mix(in srgb, var(--c) 18%, transparent);
+    color: var(--c);
+    white-space: nowrap
+}
+
+.dbig {
+    font: 800 30px var(--d);
+    margin: 10px 0 4px;
+    color: var(--c)
+}
+
+.dg p {
+    margin: 0;
+    color: var(--mu);
+    font-size: 14px
+}
+
+.tp {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: var(--ln);
+    font-size: 13.5px
+}
+
+.hs {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 76px;
+    margin-top: 14px
+}
+
+.hs b {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    background: linear-gradient(180deg, var(--rose), var(--lil));
+    min-height: 3px
+}
+
+.hl {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--mu);
+    margin-top: 4px
+}
+
+.aur {
+    pointer-events: none
+}
+
+#go {
+    position: relative;
+    z-index: 3;
+    cursor: pointer
+}
+
+#chat header,
+#pg,
+#msgs {
+    z-index: 2
+}
+
+#msgs {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff55 transparent
+}
+
+#msgs::-webkit-scrollbar {
+    width: 6px
+}
+
+#msgs::-webkit-scrollbar-thumb {
+    background: #ffffff55;
+    border-radius: 6px
+}
+
+/* ===== Статус отношений ===== */
+.stx {
+    text-align: center;
+    background: linear-gradient(135deg, #3a1766, #c0307a);
+    color: #fff;
+    border: 0;
+    padding: 34px 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stx::before {
+    content: "";
+    position: absolute;
+    inset: -40% -20% auto auto;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(#ffb38a88, #0000 65%);
+}
+
+.sbig {
+    font-size: 84px;
+    line-height: 1;
+    filter: drop-shadow(0 16px 24px #0006);
+    position: relative;
+}
+
+.stx h3 {
+    font-size: clamp(24px, 7vw, 34px);
+    margin: 14px 0 10px;
+    position: relative;
+}
+
+.stx p {
+    color: #f3e8ff;
+    max-width: 44ch;
+    margin: 0 auto;
+    position: relative;
+}
+
+.conf {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 99px;
+    background: #ffffff26;
+    border: 1px solid #ffffff44;
+    font: 700 13px Onest;
+    position: relative;
+}
+
+.ld {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 6px;
+}
+
+.ld::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 22px;
+    height: 4px;
+    background: var(--ln);
+    border-radius: 4px;
+}
+
+.ls {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    font: 700 11.5px Onest;
+    color: var(--mu);
+}
+
+.ls i {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    background: var(--sf);
+    border: 3px solid var(--ln);
+    font-style: normal;
+    font-family: var(--d);
+    font-size: 13px;
+}
+
+.ls.on i {
+    background: linear-gradient(135deg, var(--rose), var(--lil));
+    border-color: transparent;
+    color: #fff;
+}
+
+.ls.cur i {
+    box-shadow: 0 0 0 6px #ff4f8730;
+    transform: scale(1.15);
+}
+
+.ls.cur {
+    color: var(--tx);
+}
+
+.pb {
+    display: grid;
+    grid-template-columns: 150px 1fr 40px;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 13.5px;
+}
+
+.pb i {
+    display: block;
+    height: 10px;
+    border-radius: 9px;
+    background: var(--ln);
+    overflow: hidden;
+}
+
+.pb i b {
+    display: block;
+    height: 100%;
+    border-radius: 9px;
+    background: var(--lil);
+}
+
+.pb.top i b {
+    background: linear-gradient(90deg, var(--rose), var(--peach));
+}
+
+.pb.top span:first-child {
+    font-weight: 700;
+}
+
+.pb span:last-child {
+    text-align: right;
+    font: 700 13px var(--d);
+}
+
+.evg {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.evc {
+    background: linear-gradient(135deg, #8b6cf61a, #ff4f871a);
+    border-radius: 18px;
+    padding: 14px;
+}
+
+.evc b {
+    display: block;
+    font: 800 24px var(--d);
+}
+
+.evc span {
+    font-size: 12px;
+    color: var(--mu);
+}
+
+.nx {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--sf), var(--sf)) padding-box, linear-gradient(135deg, var(--rose), var(--peach), var(--lil)) border-box;
+}
+
+.nx p {
+    margin: 0;
+    color: var(--mu);
+}
+
+/* ===== Совместимость ===== */
+.rdp {
+    position: relative;
+    text-align: center;
+}
+
+.rd {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+}
+
+.avg {
+    margin-top: 6px;
+}
+
+.avg b {
+    display: block;
+    font: 800 40px var(--d);
+    background: linear-gradient(90deg, var(--lil), var(--rose));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.avg span {
+    font-size: 13px;
+    color: var(--mu);
+}
+
+.cmt {
+    margin: -6px 0 6px 140px;
+    font-size: 12px;
+    color: var(--mu);
+}
+
+.lk {
+    padding: 18px 20px;
+}
+
+.lkc {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.lkc span {
+    font: 700 12px Onest;
+    padding: 5px 12px;
+    border-radius: 99px;
+    background: var(--ln);
+}
+
+.lkc i {
+    font-style: normal;
+    color: var(--rose);
+    font-weight: 800;
+}
+
+.lk p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--mu);
+}
+
+.g1 {
+    display: grid;
+    gap: 12px;
+}
+
+.g1 .p {
+    margin: 0;
+}
+
+/* ===== План улучшений ===== */
+.pl {
+    display: grid;
+    gap: 10px;
+    position: relative;
+}
+
+.pd {
+    display: flex;
+    gap: 14px;
+    background: var(--sf);
+    border: 1px solid var(--ln);
+    border-radius: 22px;
+    padding: 16px;
+    align-items: flex-start;
+}
+
+.pd i {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font: 800 16px var(--d);
+    font-style: normal;
+    color: #fff;
+    background: linear-gradient(135deg, var(--lil), var(--rose));
+}
+
+.pd p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: var(--mu);
+}
+
+.tn a {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+@media (max-width: 520px) {
+    .pb {
+        grid-template-columns: 118px 1fr 36px;
+    }
+
+    .cmt {
+        margin-left: 0;
+    }
+
+    .ls {
+        font-size: 10px;
+    }
+
+    .evg {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media print {
+
+    .tn,
+    .cta,
+    .rb,
+    .mq {
+        display: none;
+    }
+
+    .rv {
+        opacity: 1;
+        transform: none;
+    }
+}
 </style></head><body>
 <div id="up">
 <section class="hero"><div class="aur"></div>
- <div class="nv"><span class="logo">между<i>строк</i></span><small>26 диагностик · бесплатно</small></div>
+ <div class="nv"><span class="logo">между<i>строк</i></span><small>статус отношений · 26 проверок · бесплатно</small></div>
  <div class="hg"><div>
   <h1>Что на самом деле происходит <em>в вашей переписке?</em></h1>
-  <p class="lead">Загрузите экспорт чата из Telegram: 26 проверок покажут, кто игнорирует вопросы, у кого остывают ответы, где прячется пассивная агрессия и что с этим делать. Всё открыто и бесплатно.</p>
+  <p class="lead">Загрузите экспорт чата из Telegram: узнайте, кто вы друг другу — друзья, пара или семья, насколько вы совместимы, что в переписке не так и как всё улучшить. Всё открыто и бесплатно.</p>
   <label class="cta"><input id="f" type="file" accept=".json,application/json">Загрузить result.json</label>
   <div class="pr"><span>Бесплатно</span><span>Без регистрации</span><span>Файл не покидает браузер</span></div>
   <div id="err" role="alert"></div></div>
   <div class="art" aria-hidden="true"><svg viewBox="0 0 420 380"><defs><linearGradient id="sf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b79bff"/><stop offset="1" stop-color="#6a3df0"/></linearGradient><radialGradient id="gl"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><circle cx="210" cy="190" r="172" fill="#ffffff14"/><rect x="18" y="190" width="70" height="146" rx="32" fill="#8b6cf6"/><rect x="332" y="190" width="70" height="146" rx="32" fill="#8b6cf6"/><path d="M96 336c-6-72 6-126 54-130 48 4 60 58 54 130z" fill="#ff7aa8"/><path d="M108 150c-26 42-12 94 8 110l30-14-4-96z" fill="#6b3a2e"/><circle cx="152" cy="152" r="42" fill="#ffd2b8"/><path d="M108 148c4-46 84-54 88 0-28-18-60-20-88 0z" fill="#6b3a2e"/><circle cx="140" cy="158" r="4" fill="#3a2230"/><circle cx="166" cy="158" r="4" fill="#3a2230"/><path d="M142 174q11 10 22 0" stroke="#c0455f" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="130" cy="170" r="7" fill="#ff8fa3" opacity=".6"/><path d="M216 336c-6-72 6-126 54-130 48 4 60 58 54 130z" fill="#5b8cff"/><circle cx="272" cy="152" r="42" fill="#f4c3a0"/><path d="M230 148c-4-52 82-58 86-4-14-14-30-18-46-16-14 2-30 8-40 20z" fill="#3b2a24"/><circle cx="260" cy="158" r="4" fill="#2a1a1a"/><circle cx="286" cy="158" r="4" fill="#2a1a1a"/><path d="M262 174q11 10 22 0" stroke="#b5483a" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="30" y="262" width="360" height="90" rx="40" fill="url(#sf)"/><circle cx="210" cy="232" r="54" fill="url(#gl)"/><g transform="rotate(-8 210 244)"><rect x="188" y="206" width="44" height="76" rx="9" fill="#1a1433"/><rect x="193" y="213" width="34" height="58" rx="5" fill="#ff4f87"/></g><path d="M210 98c-10-15-32-4-20 13l20 19 20-19c12-17-10-28-20-13z" fill="#ff4f87"/><path d="M92 96c-6-9-19-2-12 8l12 11 12-11c7-10-6-17-12-8z" fill="#ffb38a"/><path d="M334 82c-6-9-19-2-12 8l12 11 12-11c7-10-6-17-12-8z" fill="#fff" opacity=".8"/></svg><div class="gc" style="left:-6px;top:6%">72%<small>совместимость</small></div><div class="gc" style="right:-6px;top:30%;animation-delay:-1.6s">14 : 4<small>стикеры</small></div><div class="gc" style="left:4%;bottom:2%;animation-delay:-3s">86%<small>взаимность</small></div></div>
  </div></section>
-<div class="mq" aria-hidden="true"><div><span>Кто влюблён сильнее</span><span>Вопросы без ответа</span><span>Скорость ответов</span><span>Ред и грин флаги</span><span>Самое долгое молчание</span><span>Пассивная агрессия</span><span>Ночной режим</span><span>Карта активности</span><span>Музей кринжа</span><span>Свадьба по переписке</span><span>Гороскоп и Таро</span><span>Зеркальность речи</span><span>Кто влюблён сильнее</span><span>Вопросы без ответа</span><span>Скорость ответов</span><span>Ред и грин флаги</span><span>Самое долгое молчание</span><span>Пассивная агрессия</span><span>Ночной режим</span><span>Карта активности</span><span>Музей кринжа</span><span>Свадьба по переписке</span><span>Гороскоп и Таро</span><span>Зеркальность речи</span></div></div>
+<div class="mq" aria-hidden="true"><div><span>Статус отношений</span><span>Радар совместимости</span><span>Языки любви</span><span>План на неделю</span><span>Кто влюблён сильнее</span><span>Вопросы без ответа</span><span>Скорость ответов</span><span>Ред и грин флаги</span><span>Самое долгое молчание</span><span>Пассивная агрессия</span><span>Ночной режим</span><span>Карта активности</span><span>Музей кринжа</span><span>Свадьба по переписке</span><span>Гороскоп и Таро</span><span>Зеркальность речи</span><span>Статус отношений</span><span>Радар совместимости</span><span>Языки любви</span><span>План на неделю</span><span>Кто влюблён сильнее</span><span>Вопросы без ответа</span><span>Скорость ответов</span><span>Ред и грин флаги</span><span>Самое долгое молчание</span><span>Пассивная агрессия</span><span>Ночной режим</span><span>Карта активности</span><span>Музей кринжа</span><span>Свадьба по переписке</span><span>Гороскоп и Таро</span><span>Зеркальность речи</span></div></div>
 <section class="sec"><h2>Три шага до отчёта</h2><div class="gr">
  <div class="cd"><span class="st">1</span><h3>Выгрузите чат</h3><p>В Telegram Desktop откройте чат, нажмите ⋮ → «Экспорт истории чата», формат JSON, медиа не нужны.</p></div>
  <div class="cd"><span class="st">2</span><h3>Загрузите файл</h3><p>Нажмите кнопку выше и выберите result.json. Пока идёт разбор, мы сыграем с вами в угадайку.</p></div>
  <div class="cd"><span class="st">3</span><h3>Читайте отчёт</h3><p>Все карточки открыты сразу, без платных замков. Скопируйте итог и отправьте второму участнику.</p></div></div></section>
-<section class="sec"><h2>Что внутри отчёта</h2><div class="bt"><div class="cd x"><div class="ic">🩺</div><h3>Индекс здоровья переписки</h3><p>Сводка из 26 проверок: что в норме, что тревожит и что с этим делать.</p></div><div class="cd "><div class="ic">⏱️</div><h3>Скорость и остывание</h3><p>Кто отвечает дольше и замедляется ли темп.</p></div><div class="cd w"><div class="ic">💞</div><h3>Кто привязался сильнее</h3><p>Пять признаков: инициатива, скорость, тёплые слова, ночь, объём.</p></div><div class="cd w"><div class="ic">🚩</div><h3>Ред и грин флаги</h3><p>Находим сообщения-улики и считаем флаги у каждого.</p></div><div class="cd "><div class="ic">🙈</div><h3>Вопросы без ответа</h3><p>Какие вопросы потонули и у кого.</p></div><div class="cd "><div class="ic">🌙</div><h3>Ночной режим и карта часов</h3><p>Когда вы пишете и во сколько спите.</p></div><div class="cd "><div class="ic">⚖️</div><h3>Ссоры и примирения</h3><p>Кто начинает и кто первым мирится.</p></div><div class="cd "><div class="ic">🫣</div><h3>Музей кринжа</h3><p>Самые неловкие и трогательные сообщения.</p></div><div class="cd "><div class="ic">💍</div><h3>Свадьба по переписке</h3><p>Дата, предложение и клятва.</p></div><div class="cd "><div class="ic">🔮</div><h3>Гороскоп и Таро</h3><p>Знаки по характеру чата и три карты.</p></div></div></section>
+<section class="sec"><h2>Что внутри отчёта</h2><div class="bt"><div class="cd x"><div class="ic">💘</div><h3>Статус отношений</h3><p>Друзья, друзья с искрой, пара или семья: определяем по тону и словам, показываем вероятности и лестницу отношений.</p></div><div class="cd "><div class="ic">🧬</div><h3>Радар совместимости</h3><p>Восемь осей: эмоции, юмор, ритм, доверие, общий язык и не только.</p></div><div class="cd w"><div class="ic">🗝️</div><h3>Языки любви</h3><p>Что каждый из вас говорит и слышит лучше всего.</p></div><div class="cd w"><div class="ic">🩺</div><h3>Что не так: 26 проверок</h3><p>Цифры, пояснения и советы по каждой.</p></div><div class="cd "><div class="ic">🛠️</div><h3>План на неделю</h3><p>Семь шагов, как стать ближе.</p></div><div class="cd "><div class="ic">💞</div><h3>Кто привязался сильнее</h3><p>Пять признаков вовлечённости.</p></div><div class="cd "><div class="ic">🚩</div><h3>Ред и грин флаги</h3><p>Сообщения-улики у каждого.</p></div><div class="cd "><div class="ic">🌙</div><h3>Ночной режим</h3><p>Когда вы пишете и когда спите.</p></div><div class="cd "><div class="ic">🫣</div><h3>Музей кринжа</h3><p>Самое неловкое и трогательное.</p></div><div class="cd "><div class="ic">🔮</div><h3>Гороскоп и Таро</h3><p>Знаки и три карты на пару.</p></div></div></section>
 <section class="sec"><div class="pv"><h2 style="font-size:26px;margin-bottom:12px">Переписка остаётся у вас</h2><p>Анализ запускается прямо в браузере. Файл не загружается на сервер и нигде не сохраняется. Закроете вкладку, и данных не останется. Оценки считаются по формулам и задуманы как шутка: это не диагноз и не приговор отношениям.</p></div></section>
 <section class="sec"><h2>Частые вопросы</h2>
  <details><summary>Где взять result.json?</summary><p>Telegram Desktop → нужный чат → три точки → «Экспорт истории чата». Выберите формат JSON, уберите галочки с фото и видео, нажмите «Экспортировать».</p></details>
@@ -142,86 +1598,347 @@ body{background:radial-gradient(60% 38% at 8% 0,var(--o1),#0000),radial-gradient
 <div id="chat"><div class="aur"></div><header><span id="ct">Читаем вашу переписку</span><small>это займёт несколько секунд</small></header><div id="pg"><i></i></div><div id="msgs"></div><button id="go" class="cta">Открыть отчёт</button></div>
 <div id="rep"></div>
 <script>
-const T=m=>typeof m.text==='string'?m.text:(m.text||[]).map(x=>typeof x==='string'?x:x.text).join('');
-const RX={laugh:/(а?х){2,}|ха{2,}|хах|лол|кек|😂|🤣|\){2,}/i,aff:/люблю|скуча|милый|милая|мило|❤|😘|🥰|обним|зай|солныш|котик|малыш/i,sorry:/прости|извин|сорри|виноват/i,fight:/бесишь|достал|заткнись|отстань|идиот|дура[кц]?|туп[ао]й|злюсь|обиж|ненавижу|надоел|пофиг|похер/i,praise:/классн|круто|красив|молодец|умниц|супер|лучш|огонь|шикарн|гений/i,thanks:/спасиб|благодар|спс|сенк/i};
-const SW=new Set('просто когда тоже потому чтобы можно только очень этого сейчас если будет такой почему тогда конечно вообще сегодня завтра сделаю сделать надо наверное короче значит пожалуйста'.split(' '));
-const cl=(v,a=8,b=98)=>Math.round(Math.max(a,Math.min(b,v)));
-const med=a=>{if(!a.length)return 0;a=[...a].sort((x,y)=>x-y);return a[a.length>>1]};
-const fmtT=s=>s<90?Math.round(s)+' сек':s<5400?Math.round(s/60)+' мин':(s/3600).toFixed(1)+' ч';
-const fmtD=ts=>new Date(ts).toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
-const hm=ts=>new Date(ts).toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const cut=(s,n=110)=>s.length>n?s.slice(0,n-1)+'…':s;
-function analyze(d){
- let ms=(d.messages||[]).filter(m=>m.type==='message'&&m.from).map(m=>({m,w:m.from,t:T(m),ts:(+m.date_unixtime)*1e3||Date.parse(m.date),h:new Date(m.date).getHours()}));
- const c={};ms.forEach(x=>c[x.w]=(c[x.w]||0)+1);
- const ids=Object.keys(c).sort((a,b)=>c[b]-c[a]).slice(0,2);
- if(ids.length<2)throw Error('В чате должно быть два участника. Экспортируйте личную переписку.');
- ms=ms.filter(x=>ids.includes(x.w));
- const sn=n=>n.replace(/[^\p{L}\p{N} ]/gu,'').trim()||n;
- const P=ids.map(id=>({id,n:sn(id),msgs:0,chars:0,stick:0,photo:0,voice:0,laugh:0,q:0,night:0,aff:0,sorry:0,fight:0,praise:0,thanks:0,starts:0,run:0,rep:[],words:{}}));
- const by=Object.fromEntries(P.map(p=>[p.id,p]));const ex={aff:[],sorry:[],fight:[],praise:[],thanks:[]};
- const cr=[],fl=[];let prev=null,run=0;
- ms.forEach(x=>{const p=by[x.w],t=x.t,m=x.m;p.msgs++;p.chars+=t.length;
-  if(m.media_type==='sticker')p.stick++;if(m.photo)p.photo++;if(/voice_message|video_message/.test(m.media_type||''))p.voice++;
-  if(RX.laugh.test(t))p.laugh++;if(t.includes('?'))p.q++;if(x.h<5)p.night++;
-  for(const k of['aff','sorry','fight','praise','thanks'])if(RX[k].test(t)){p[k]++;if(ex[k].length<40)ex[k].push({w:p.n,t,ts:x.ts})}
-  if(RX.fight.test(t))fl.push(x);
-  (t.toLowerCase().match(/[а-яё]{5,}/g)||[]).forEach(w=>{if(!SW.has(w))p.words[w]=(p.words[w]||0)+1});
-  const e=(t.match(/\p{Extended_Pictographic}/gu)||[]).length;
-  const sc=(RX.aff.test(t)?1:0)+(/(.)\1{2,}/.test(t)?1:0)+(/…|\.\.\./.test(t)?1:0)+(e>1?1:0)+(RX.sorry.test(t)?1:0);
-  if(sc>=2&&t.length<220)cr.push({w:p.n,t,ts:x.ts,sc});
-  if(!prev||x.ts-prev.ts>216e5)p.starts++;
-  if(prev&&prev.w===x.w)run++;else{if(prev)by[prev.w].run=Math.max(by[prev.w].run,run);run=1}
-  if(prev&&prev.w!==x.w&&x.ts-prev.ts<216e5)p.rep.push((x.ts-prev.ts)/1e3);
-  prev=x});
- by[prev.w].run=Math.max(by[prev.w].run,run);
- const [a,b]=P,tot=a.msgs+b.msgs,f0=ms[0].ts,f1=prev.ts,days=Math.ceil((f1-f0)/864e5)+1;
- const sum=k=>a[k]+b[k];a.mr=med(a.rep);b.mr=med(b.rep);
- const top=p=>Object.entries(p.words).sort((x,y)=>y[1]-x[1])[0]||['привет',0];
- a.top=top(a);b.top=top(b);
- const recip=100-Math.abs(50-a.msgs/tot*100)*2,affR=sum('aff')/tot*100,fightR=sum('fight')/tot*100,avgLen=(a.chars+b.chars)/tot;
- const bars={'Теплота':cl(20+affR*8),'Доверие':cl(35+avgLen/2+sum('voice')/tot*300),'Инициатива':cl(40+sum('starts')/days*25),'Взаимность':cl(recip),'Открытость':cl(25+avgLen*1.2+sum('q')/tot*40),'Честность':cl(60+sum('praise')/tot*100-fightR*10),'Уважение границ':cl(95-fightR*40-sum('night')/tot*60),'Общий юмор':cl(20+sum('laugh')/tot*250)};
- const compat=cl(.3*bars['Взаимность']+.2*bars['Теплота']+.2*bars['Общий юмор']+.15*bars['Доверие']+.15*bars['Уважение границ']);
- const cringe=cl(cr.length/tot*100*8,5,95),love=cl(.5*bars['Теплота']+.3*bars['Взаимность']+.2*bars['Общий юмор']);
- const sg=[['Чаще пишет первым','starts',1],['Отправил больше сообщений','msgs',1],['Отвечает быстрее','mr',-1],['Больше тёплых слов','aff',1],['Чаще пишет ночью','night',1]].map(([l,k,d])=>{const x=(a[k]-b[k])*d;return{l,v:x>0?0:x<0?1:-1,a:k=='mr'?fmtT(a[k]):a[k],b:k=='mr'?fmtT(b[k]):b[k]}});
- const wins=[0,1].map(i=>sg.filter(s=>s.v===i).length);
- const cap=[...fl].sort((x,y)=>x.ts-y.ts),cs=[];cap.forEach(x=>{const l=cs[cs.length-1];if(l&&x.ts-l[l.length-1].ts<108e5)l.push(x);else cs.push([x])});
- const fs=[0,0],pc=[0,0];cs.forEach(g=>{fs[ids.indexOf(g[0].w)]++;const end=g[g.length-1].ts,r=ms.find(x=>x.ts>end&&x.ts-end<432e5&&(RX.sorry.test(x.t)||RX.aff.test(x.t)));if(r)pc[ids.indexOf(r.w)]++});
- const rd=(p,q)=>({m:p.mr>q.mr*2&&p.mr>600,n:p.night/p.msgs>.12,f:p.fight>0,r:p.run>=6});
- const flags=P.map((p,i)=>{const q=P[1-i],r=rd(p,q),L=[];if(r.m)L.push(`Отвечает в среднем за ${fmtT(p.mr)}, у собеседника ${fmtT(q.mr)}`);if(r.n)L.push(`Ночью написано ${p.night} сообщений`);if(r.f)L.push(`Резкие слова: ${p.fight} раз`);if(r.r)L.push(`Монолог на ${p.run} сообщений подряд`);
-  const G=[];if(p.praise>q.praise)G.push(`Хвалит чаще: ${p.praise} раз`);if(p.thanks>0)G.push(`Благодарит: ${p.thanks} раз`);if(p.sorry>0)G.push(`Извиняется: ${p.sorry} раз`);if(p.starts>q.starts)G.push(`Чаще начинает разговор: ${p.starts} раз`);if(p.mr<q.mr&&p.mr>0)G.push(`Отвечает быстрее: ${fmtT(p.mr)}`);
-  return{p,L,G}});
- const tt=[['stick','Повелитель стикеров'],['laugh','Главный хохотун'],['photo','Фотограф чата'],['voice','Голосовой маньяк'],['night','Ночной дозор'],['run','Мастер монологов']];let ti=null,tb=-1;
- tt.forEach(([k,n])=>{const s=sum(k);if(s<2)return;P.forEach((p,i)=>{const o=P[1-i][k],sc=(p[k]-o)/(p[k]+o)*Math.log(s+1);if(sc>tb){tb=sc;ti={i,k,n,v:p[k],o}}})});
- ti=ti||{i:0,k:'msgs',n:'Автор переписки',v:a.msgs,o:b.msgs};
- const trend=(()=>{const L=ms.filter(x=>x.ts>f1-2592e6).length,B=ms.filter(x=>x.ts<=f1-2592e6&&x.ts>f1-5184e6).length;return L>B*1.15?1:L<B*.85?-1:0})();
- const first=ms.filter(x=>x.t).slice(0,3).map(x=>({w:by[x.w].n,t:x.t,ts:x.ts,me:x.w===ids[1]}));
- const quiz=[['stick','Кто чаще отвечает стикерами?','Стикеры'],['laugh','Кто чаще смеётся в переписке?','Сообщения со смехом'],['photo','Кто присылает больше фото?','Фото'],['starts','Кто чаще начинает разговор?','Начатые разговоры'],['night','Кто пишет по ночам?','Ночные сообщения']].filter(q=>sum(q[0])>0).slice(0,3).map(q=>({q:q[1],l:q[2],v:[a[q[0]],b[q[0]]]}));
- cr.sort((x,y)=>y.sc-x.sc||y.t.length-x.t.length);
- return{ms,names:[a.n,b.n],P,tot,f0,f1,days,first,bars,compat,cringe,love,sg,wins,fs,pc,nf:cs.length,flags,ti,trend,quiz,museum:cr.slice(0,4),ex,sticks:sum('stick'),nightT:sum('night'),affT:sum('aff')};
-}
-const sign=(p,P)=>{const o=P[1-P.indexOf(p)],r=k=>p[k]/p.msgs;return p.night/p.msgs>.1?['♏','Скорпион','Бодрствует, когда город спит']:r('laugh')>o.laugh/o.msgs&&p.laugh>3?['♊','Близнецы','Смех — родной язык']:p.stick>o.stick+2?['♒','Водолей','Стикер вместо тысячи слов']:p.photo>o.photo+2?['♌','Лев','Любит делиться кадрами']:p.chars/p.msgs>o.chars/o.msgs?['♓','Рыбы','Пишет длинно и от души']:p.mr&&p.mr<o.mr?['♈','Овен','Отвечает, пока думают другие']:['♉','Телец','Стабильность — его стиль']};
+const T = m => typeof m.text === 'string' ? m.text : (m.text || []).map(x => typeof x === 'string' ? x : x.text).join('');
+const RX = {
+  laugh: /(а?х){2,}|ха{2,}|хах|лол|кек|😂|🤣|\){2,}/i,
+  aff: /люблю|скуча|милый|милая|мило|❤|😘|🥰|обним|зай|солныш|котик|малыш/i,
+  sorry: /прости|извин|сорри|виноват/i,
+  fight: /бесишь|достал|заткнись|отстань|идиот|дура[кц]?|туп[ао]й|злюсь|обиж|ненавижу|надоел|пофиг|похер/i,
+  praise: /классн|круто|красив|молодец|умниц|супер|лучш|огонь|шикарн|гений/i,
+  thanks: /спасиб|благодар|спс|сенк/i
+};
+const SW = new Set('просто когда тоже потому чтобы можно только очень этого сейчас если будет такой почему тогда конечно вообще сегодня завтра сделаю сделать надо наверное короче значит пожалуйста'.split(' '));
+const cl = (v, a = 8, b = 98) => Math.round(Math.max(a, Math.min(b, v)));
+const med = a => {
+  if (!a.length) return 0;
+  a = [...a].sort((x, y) => x - y);
+  return a[a.length >> 1]
+};
+const fmtT = s => s < 90 ? Math.round(s) + ' сек' : s < 5400 ? Math.round(s / 60) + ' мин' : (s / 3600).toFixed(1) + ' ч';
+const fmtD = ts => new Date(ts).toLocaleDateString('ru-RU', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+const hm = ts => new Date(ts).toLocaleTimeString('ru-RU', {
+  hour: '2-digit',
+  minute: '2-digit'
+});
+const esc = s => String(s).replace(/[&<>"]/g, c => ({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;'
+} [c]));
+const cut = (s, n = 110) => s.length > n ? s.slice(0, n - 1) + '…' : s;
 
-function rep(R){
- const [A,B]=R.names,S=R.P,E=esc,rg=(v,c)=>`<div class=rg style="--p:${v};--c:${c}"><b>${v}%</b></div>`;
- const BN=[['💬','#7c5cff,#ff4f87'],['✨','#ff4f87,#ff9a6c'],['🌈','#22b8cf,#7c5cff'],['💞','#ff4f87,#8b2fc9'],['⚖️','#5b8cff,#8b2fc9'],['🚩','#ff6b7d,#c0307a'],['🏆','#ffb347,#ff4f87'],['🫣','#c04fff,#ff6b9a'],['💍','#ff9a6c,#d6336c'],['🔍','#3b82f6,#8b5cf6'],['🔮','#6a3df0,#ff4f87'],['🃏','#2a1670,#c0307a'],['📊','#1fae82,#5b8cff']];let ci=0;
- const ch=(t,s)=>{const [e,g]=BN[ci++%BN.length];return`<div class=bn style="--g:${g}"><span class=be>${e}</span><h2>${t}</h2></div>${s?`<p class=sub>${s}</p>`:''}`};
- const duel=(t,x,y,n)=>`<div class=p><h3>${t}</h3><div class=dl><span>${E(A)} <b>${x}</b></span><span><b>${y}</b> ${E(B)}</span></div><div class=bar><i style="width:${x+y?x/(x+y)*100:50}%"></i></div>${n?`<p class=sub style="margin:8px 0 0">${n}</p>`:''}</div>`;
- const q=e=>e?`<div class=qt>${E(cut(e.t,150))}<small>${E(e.w)}, ${fmtD(e.ts)} ${hm(e.ts)}</small></div>`:'';
- const v=R.love>=65?['Вы точно не просто друзья,','хоть и не признаётесь']:R.love>=45?['Двое, которые просто друзья,','но это не точно']:['Двое, которые просто друзья,','и данные согласны'];
- const dir=S[0].starts>=S[1].starts?0:1,wd=new Date(R.f0+365*864e5),ti=R.ti,ps=S[ti.i];
- const lead=R.wins[0]===R.wins[1]?-1:R.wins[0]>R.wins[1]?0:1,who=w=>w<0?'Поровну':E(R.names[w]);
- const rf=R.flags.map(f=>f.L.length),gf=R.flags.map(f=>f.G.length),sg=S.map(p=>sign(p,S));
- const fu=R.trend>0?['Солнце','вы пишете всё чаще']:R.trend<0?['Отшельник','переписка идёт на спад']:['Звезда','темп стабилен'];
- const fl=(k,cls,t,c)=>`<div class="p ${cls}"><h3>${t}: ${c[0]===c[1]?'ничья':E(R.names[c[0]>c[1]?0:1])}</h3>${R.flags.map((f,i)=>`<div class=qt><b>${E(f.p.n)}: ${c[i]}</b>${(k?f.G:f.L).map(x=>`<small>${E(x)}</small>`).join('')||'<small>Ничего не нашли</small>'}</div>`).join('')}</div>`;
- const tc=(n,t,e)=>`<button class=tc onclick="this.classList.toggle('f')" aria-label="Перевернуть карту"><div class=ti><div class=fa>✦</div><div class=bk><span style="font-size:26px">${e}</span><b>${n}</b>${t}</div></div></button>`;
- return`<div class=rh><div><span class=logo>между<i>строк</i></span><h1>${v[0]} <em>${v[1]}</em></h1><span class=chip>${R.tot} сообщений</span><span class=chip>${R.days} дн. переписки</span><span class=chip>с ${fmtD(R.f0)}</span><br><button class=rb onclick="share(this)">Скопировать итог</button> <button class=rb onclick="location.reload()">Загрузить другой чат</button></div></div>
-<div class=rw><nav class=tn><a href=#s1>Главное</a><a href=#s2>Что не так</a><a href=#s3>Флаги</a><a href=#s4>Забавное</a></nav><i id=s1></i>${ch('С чего всё началось')}<div class=p>${R.first.map(x=>`<div class="bb ${x.me?'r':''}">${E(cut(x.t,160))}<small>${E(x.w)}, ${hm(x.ts)}</small></div>`).join('')}</div>
+function analyze(d) {
+  let ms = (d.messages || []).filter(m => m.type === 'message' && m.from).map(m => ({
+    m,
+    w: m.from,
+    t: T(m),
+    ts: (+m.date_unixtime) * 1e3 || Date.parse(m.date),
+    h: new Date(m.date).getHours()
+  }));
+  const c = {};
+  ms.forEach(x => c[x.w] = (c[x.w] || 0) + 1);
+  const ids = Object.keys(c).sort((a, b) => c[b] - c[a]).slice(0, 2);
+  if (ids.length < 2) throw Error('В чате должно быть два участника. Экспортируйте личную переписку.');
+  ms = ms.filter(x => ids.includes(x.w));
+  const sn = n => n.replace(/[^\p{L}\p{N} ]/gu, '').trim() || n;
+  const P = ids.map(id => ({
+    id,
+    n: sn(id),
+    msgs: 0,
+    chars: 0,
+    stick: 0,
+    photo: 0,
+    voice: 0,
+    laugh: 0,
+    q: 0,
+    night: 0,
+    aff: 0,
+    sorry: 0,
+    fight: 0,
+    praise: 0,
+    thanks: 0,
+    starts: 0,
+    run: 0,
+    rep: [],
+    words: {}
+  }));
+  const by = Object.fromEntries(P.map(p => [p.id, p]));
+  const ex = {
+    aff: [],
+    sorry: [],
+    fight: [],
+    praise: [],
+    thanks: []
+  };
+  const cr = [],
+    fl = [];
+  let prev = null,
+    run = 0;
+  ms.forEach(x => {
+    const p = by[x.w],
+      t = x.t,
+      m = x.m;
+    p.msgs++;
+    p.chars += t.length;
+    if (m.media_type === 'sticker') p.stick++;
+    if (m.photo) p.photo++;
+    if (/voice_message|video_message/.test(m.media_type || '')) p.voice++;
+    if (RX.laugh.test(t)) p.laugh++;
+    if (t.includes('?')) p.q++;
+    if (x.h < 5) p.night++;
+    for (const k of ['aff', 'sorry', 'fight', 'praise', 'thanks'])
+      if (RX[k].test(t)) {
+        p[k]++;
+        if (ex[k].length < 40) ex[k].push({
+          w: p.n,
+          t,
+          ts: x.ts
+        })
+      }
+    if (RX.fight.test(t)) fl.push(x);
+    (t.toLowerCase().match(/[а-яё]{5,}/g) || []).forEach(w => {
+      if (!SW.has(w)) p.words[w] = (p.words[w] || 0) + 1
+    });
+    const e = (t.match(/\p{Extended_Pictographic}/gu) || []).length;
+    const sc = (RX.aff.test(t) ? 1 : 0) + (/(.)\1{2,}/.test(t) ? 1 : 0) + (/…|\.\.\./.test(t) ? 1 : 0) + (e > 1 ? 1 : 0) + (RX.sorry.test(t) ? 1 : 0);
+    if (sc >= 2 && t.length < 220) cr.push({
+      w: p.n,
+      t,
+      ts: x.ts,
+      sc
+    });
+    if (!prev || x.ts - prev.ts > 216e5) p.starts++;
+    if (prev && prev.w === x.w) run++;
+    else {
+      if (prev) by[prev.w].run = Math.max(by[prev.w].run, run);
+      run = 1
+    }
+    if (prev && prev.w !== x.w && x.ts - prev.ts < 216e5) p.rep.push((x.ts - prev.ts) / 1e3);
+    prev = x
+  });
+  by[prev.w].run = Math.max(by[prev.w].run, run);
+  const [a, b] = P, tot = a.msgs + b.msgs, f0 = ms[0].ts, f1 = prev.ts, days = Math.ceil((f1 - f0) / 864e5) + 1;
+  const sum = k => a[k] + b[k];
+  a.mr = med(a.rep);
+  b.mr = med(b.rep);
+  const top = p => Object.entries(p.words).sort((x, y) => y[1] - x[1])[0] || ['привет', 0];
+  a.top = top(a);
+  b.top = top(b);
+  const recip = 100 - Math.abs(50 - a.msgs / tot * 100) * 2,
+    affR = sum('aff') / tot * 100,
+    fightR = sum('fight') / tot * 100,
+    avgLen = (a.chars + b.chars) / tot;
+  const bars = {
+    'Теплота': cl(20 + affR * 8),
+    'Доверие': cl(35 + avgLen / 2 + sum('voice') / tot * 300),
+    'Инициатива': cl(40 + sum('starts') / days * 25),
+    'Взаимность': cl(recip),
+    'Открытость': cl(25 + avgLen * 1.2 + sum('q') / tot * 40),
+    'Честность': cl(60 + sum('praise') / tot * 100 - fightR * 10),
+    'Уважение границ': cl(95 - fightR * 40 - sum('night') / tot * 60),
+    'Общий юмор': cl(20 + sum('laugh') / tot * 250)
+  };
+  const compat = cl(.3 * bars['Взаимность'] + .2 * bars['Теплота'] + .2 * bars['Общий юмор'] + .15 * bars['Доверие'] + .15 * bars['Уважение границ']);
+  const cringe = cl(cr.length / tot * 100 * 8, 5, 95),
+    love = cl(.5 * bars['Теплота'] + .3 * bars['Взаимность'] + .2 * bars['Общий юмор']);
+  const sg = [
+    ['Чаще пишет первым', 'starts', 1],
+    ['Отправил больше сообщений', 'msgs', 1],
+    ['Отвечает быстрее', 'mr', -1],
+    ['Больше тёплых слов', 'aff', 1],
+    ['Чаще пишет ночью', 'night', 1]
+  ].map(([l, k, d]) => {
+    const x = (a[k] - b[k]) * d;
+    return {
+      l,
+      v: x > 0 ? 0 : x < 0 ? 1 : -1,
+      a: k == 'mr' ? fmtT(a[k]) : a[k],
+      b: k == 'mr' ? fmtT(b[k]) : b[k]
+    }
+  });
+  const wins = [0, 1].map(i => sg.filter(s => s.v === i).length);
+  const cap = [...fl].sort((x, y) => x.ts - y.ts),
+    cs = [];
+  cap.forEach(x => {
+    const l = cs[cs.length - 1];
+    if (l && x.ts - l[l.length - 1].ts < 108e5) l.push(x);
+    else cs.push([x])
+  });
+  const fs = [0, 0],
+    pc = [0, 0];
+  cs.forEach(g => {
+    fs[ids.indexOf(g[0].w)]++;
+    const end = g[g.length - 1].ts,
+      r = ms.find(x => x.ts > end && x.ts - end < 432e5 && (RX.sorry.test(x.t) || RX.aff.test(x.t)));
+    if (r) pc[ids.indexOf(r.w)]++
+  });
+  const rd = (p, q) => ({
+    m: p.mr > q.mr * 2 && p.mr > 600,
+    n: p.night / p.msgs > .12,
+    f: p.fight > 0,
+    r: p.run >= 6
+  });
+  const flags = P.map((p, i) => {
+    const q = P[1 - i],
+      r = rd(p, q),
+      L = [];
+    if (r.m) L.push(`Отвечает в среднем за ${fmtT(p.mr)}, у собеседника ${fmtT(q.mr)}`);
+    if (r.n) L.push(`Ночью написано ${p.night} сообщений`);
+    if (r.f) L.push(`Резкие слова: ${p.fight} раз`);
+    if (r.r) L.push(`Монолог на ${p.run} сообщений подряд`);
+    const G = [];
+    if (p.praise > q.praise) G.push(`Хвалит чаще: ${p.praise} раз`);
+    if (p.thanks > 0) G.push(`Благодарит: ${p.thanks} раз`);
+    if (p.sorry > 0) G.push(`Извиняется: ${p.sorry} раз`);
+    if (p.starts > q.starts) G.push(`Чаще начинает разговор: ${p.starts} раз`);
+    if (p.mr < q.mr && p.mr > 0) G.push(`Отвечает быстрее: ${fmtT(p.mr)}`);
+    return {
+      p,
+      L,
+      G
+    }
+  });
+  const tt = [
+    ['stick', 'Повелитель стикеров'],
+    ['laugh', 'Главный хохотун'],
+    ['photo', 'Фотограф чата'],
+    ['voice', 'Голосовой маньяк'],
+    ['night', 'Ночной дозор'],
+    ['run', 'Мастер монологов']
+  ];
+  let ti = null,
+    tb = -1;
+  tt.forEach(([k, n]) => {
+    const s = sum(k);
+    if (s < 2) return;
+    P.forEach((p, i) => {
+      const o = P[1 - i][k],
+        sc = (p[k] - o) / (p[k] + o) * Math.log(s + 1);
+      if (sc > tb) {
+        tb = sc;
+        ti = {
+          i,
+          k,
+          n,
+          v: p[k],
+          o
+        }
+      }
+    })
+  });
+  ti = ti || {
+    i: 0,
+    k: 'msgs',
+    n: 'Автор переписки',
+    v: a.msgs,
+    o: b.msgs
+  };
+  const trend = (() => {
+    const L = ms.filter(x => x.ts > f1 - 2592e6).length,
+      B = ms.filter(x => x.ts <= f1 - 2592e6 && x.ts > f1 - 5184e6).length;
+    return L > B * 1.15 ? 1 : L < B * .85 ? -1 : 0
+  })();
+  const first = ms.filter(x => x.t).slice(0, 3).map(x => ({
+    w: by[x.w].n,
+    t: x.t,
+    ts: x.ts,
+    me: x.w === ids[1]
+  }));
+  const quiz = [
+    ['stick', 'Кто чаще отвечает стикерами?', 'Стикеры'],
+    ['laugh', 'Кто чаще смеётся в переписке?', 'Сообщения со смехом'],
+    ['photo', 'Кто присылает больше фото?', 'Фото'],
+    ['starts', 'Кто чаще начинает разговор?', 'Начатые разговоры'],
+    ['night', 'Кто пишет по ночам?', 'Ночные сообщения']
+  ].filter(q => sum(q[0]) > 0).slice(0, 3).map(q => ({
+    q: q[1],
+    l: q[2],
+    v: [a[q[0]], b[q[0]]]
+  }));
+  cr.sort((x, y) => y.sc - x.sc || y.t.length - x.t.length);
+  return {
+    ms,
+    names: [a.n, b.n],
+    P,
+    tot,
+    f0,
+    f1,
+    days,
+    first,
+    bars,
+    compat,
+    cringe,
+    love,
+    sg,
+    wins,
+    fs,
+    pc,
+    nf: cs.length,
+    flags,
+    ti,
+    trend,
+    quiz,
+    museum: cr.slice(0, 4),
+    ex,
+    sticks: sum('stick'),
+    nightT: sum('night'),
+    affT: sum('aff')
+  };
+}
+const sign = (p, P) => {
+  const o = P[1 - P.indexOf(p)],
+    r = k => p[k] / p.msgs;
+  return p.night / p.msgs > .1 ? ['♏', 'Скорпион', 'Бодрствует, когда город спит'] : r('laugh') > o.laugh / o.msgs && p.laugh > 3 ? ['♊', 'Близнецы', 'Смех — родной язык'] : p.stick > o.stick + 2 ? ['♒', 'Водолей', 'Стикер вместо тысячи слов'] : p.photo > o.photo + 2 ? ['♌', 'Лев', 'Любит делиться кадрами'] : p.chars / p.msgs > o.chars / o.msgs ? ['♓', 'Рыбы', 'Пишет длинно и от души'] : p.mr && p.mr < o.mr ? ['♈', 'Овен', 'Отвечает, пока думают другие'] : ['♉', 'Телец', 'Стабильность — его стиль']
+};
+
+function rep(R) {
+  const [A, B] = R.names, S = R.P, E = esc, rg = (v, c) => `<div class=rg style="--p:${v};--c:${c}"><b>${v}%</b></div>`;
+  const BN = [
+    ['💬', '#7c5cff,#ff4f87'],
+    ['✨', '#ff4f87,#ff9a6c'],
+    ['🌈', '#22b8cf,#7c5cff'],
+    ['💞', '#ff4f87,#8b2fc9'],
+    ['⚖️', '#5b8cff,#8b2fc9'],
+    ['🚩', '#ff6b7d,#c0307a'],
+    ['🏆', '#ffb347,#ff4f87'],
+    ['🫣', '#c04fff,#ff6b9a'],
+    ['💍', '#ff9a6c,#d6336c'],
+    ['🔍', '#3b82f6,#8b5cf6'],
+    ['🔮', '#6a3df0,#ff4f87'],
+    ['🃏', '#2a1670,#c0307a'],
+    ['📊', '#1fae82,#5b8cff']
+  ];
+  let ci = 0;
+  const ch = (t, s) => {
+    const [e, g] = BN[ci++ % BN.length];
+    return `<div class=bn style="--g:${g}"><span class=be>${e}</span><h2>${t}</h2></div>${s?`<p class=sub>${s}</p>`:''}`
+  };
+  const duel = (t, x, y, n) => `<div class=p><h3>${t}</h3><div class=dl><span>${E(A)} <b>${x}</b></span><span><b>${y}</b> ${E(B)}</span></div><div class=bar><i style="width:${x+y?x/(x+y)*100:50}%"></i></div>${n?`<p class=sub style="margin:8px 0 0">${n}</p>`:''}</div>`;
+  const q = e => e ? `<div class=qt>${E(cut(e.t,150))}<small>${E(e.w)}, ${fmtD(e.ts)} ${hm(e.ts)}</small></div>` : '';
+  const v = R.love >= 65 ? ['Вы точно не просто друзья,', 'хоть и не признаётесь'] : R.love >= 45 ? ['Двое, которые просто друзья,', 'но это не точно'] : ['Двое, которые просто друзья,', 'и данные согласны'];
+  const dir = S[0].starts >= S[1].starts ? 0 : 1,
+    wd = new Date(R.f0 + 365 * 864e5),
+    ti = R.ti,
+    ps = S[ti.i];
+  const lead = R.wins[0] === R.wins[1] ? -1 : R.wins[0] > R.wins[1] ? 0 : 1,
+    who = w => w < 0 ? 'Поровну' : E(R.names[w]);
+  const rf = R.flags.map(f => f.L.length),
+    gf = R.flags.map(f => f.G.length),
+    sg = S.map(p => sign(p, S));
+  const fu = R.trend > 0 ? ['Солнце', 'вы пишете всё чаще'] : R.trend < 0 ? ['Отшельник', 'переписка идёт на спад'] : ['Звезда', 'темп стабилен'];
+  const fl = (k, cls, t, c) => `<div class="p ${cls}"><h3>${t}: ${c[0]===c[1]?'ничья':E(R.names[c[0]>c[1]?0:1])}</h3>${R.flags.map((f,i)=>`<div class=qt><b>${E(f.p.n)}: ${c[i]}</b>${(k?f.G:f.L).map(x=>`<small>${E(x)}</small>`).join('')||'<small>Ничего не нашли</small>'}</div>`).join('')}</div>`;
+  const tc = (n, t, e) => `<button class=tc onclick="this.classList.toggle('f')" aria-label="Перевернуть карту"><div class=ti><div class=fa>✦</div><div class=bk><span style="font-size:26px">${e}</span><b>${n}</b>${t}</div></div></button>`;
+  return `<div class=rh><div><span class=logo>между<i>строк</i></span><h1>${v[0]} <em>${v[1]}</em></h1><span class=chip>${R.tot} сообщений</span><span class=chip>${R.days} дн. переписки</span><span class=chip>с ${fmtD(R.f0)}</span><span class=chip>${R.S.top.e} ${R.S.top.n}</span><br><button class=rb onclick="share(this)">Скопировать итог</button> <button class=rb onclick="location.reload()">Загрузить другой чат</button></div></div>
+<div class=rw><nav class=tn><a href=#s1>Главное</a><a href=#s5>Статус</a><a href=#s6>Совместимость</a><a href=#s2>Что не так</a><a href=#s7>План</a><a href=#s3>Флаги</a><a href=#s4>Забавное</a></nav><i id=s1></i>${ch('С чего всё началось')}<div class=p>${R.first.map(x=>`<div class="bb ${x.me?'r':''}">${E(cut(x.t,160))}<small>${E(x.w)}, ${hm(x.ts)}</small></div>`).join('')}</div>
 ${ch('Три главные цифры','Шуточные оценки по активности, тёплым словам, юмору и балансу.')}<div class="p gp"><h3>Совместимость</h3>${rg(R.compat,'#fff')}<div>Выше, чем у ${Math.round(R.compat/10)} из 10 условных пар</div></div>
 <div class=g2><div class=p><h3>Индекс кринжа</h3>${rg(R.cringe,'#f5a623')}</div><div class=p><h3>Вероятность влюбиться</h3>${rg(R.love,'#ef5b6c')}</div></div>
-${ch('Из чего состоит ваша дружба')}<div class=p>${Object.entries(R.bars).map(([k,x])=>`<div class=m><span>${k}</span><i><b style="width:${x}%"></b></i><span>${x}</span></div>`).join('')}</div>
-${diagHTML(R)}${ch('Кто привязался сильнее',leader(lead,R))}<div class=p><div class=sc><div>${R.wins[0]}<small>${E(A)}</small></div><span style="font-size:24px">:</span><div>${R.wins[1]}<small>${E(B)}</small></div></div></div><div class=p>${R.sg.map(s=>`<div class=qt><b>${s.l}:</b> ${who(s.v)}<small>${E(A)} ${s.a}, ${E(B)} ${s.b}</small></div>`).join('')}</div>
+${statusHTML(R)}${compatHTML(R)}${ch('Из чего состоит ваша дружба')}<div class=p>${Object.entries(R.bars).map(([k,x])=>`<div class=m><span>${k}</span><i><b style="width:${x}%"></b></i><span>${x}</span></div>`).join('')}</div>
+${diagHTML(R)}${planHTML(R)}${ch('Кто привязался сильнее',leader(lead,R))}<div class=p><div class=sc><div>${R.wins[0]}<small>${E(A)}</small></div><span style="font-size:24px">:</span><div>${R.wins[1]}<small>${E(B)}</small></div></div></div><div class=p>${R.sg.map(s=>`<div class=qt><b>${s.l}:</b> ${who(s.v)}<small>${E(A)} ${s.a}, ${E(B)} ${s.b}</small></div>`).join('')}</div>
 ${ch('Как вы ссоритесь')}${R.nf?duel('Кто начинает ссоры',R.fs[0],R.fs[1],'Эпизодов с резкими словами: '+R.nf)+duel('Кто первым мирится',R.pc[0],R.pc[1],'Первое «прости» или тёплое слово в течение 12 часов')+duel('Кто чаще извиняется',S[0].sorry,S[1].sorry):`<div class=p><h3>Ссор не нашли</h3><p class=sub>За ${R.days} дн. резких слов нет. Либо вы очень мирные, либо ругаетесь голосом.</p></div>`+duel('Кто чаще извиняется',S[0].sorry,S[1].sorry)}
 <i id=s3></i>${ch('Кто из вас ред флаг')}${fl(0,'fr','Больше ред флагов',rf)}${fl(1,'fg','Больше грин флагов',gf)}
 <i id=s4></i>${ch('Титул, который вы заслужили')}<div class="p cert"><div class=em>✉️</div><h3>${E(ps.n)}: ${ti.n}</h3><p class=sub>${ti.k=='msgs'?'Больше всех сообщений':ti.v+' против '+ti.o}</p></div>
@@ -231,77 +1948,649 @@ ${ch('Если бы ваш чат прочитали')}${[['🧑‍⚕️ Сем
 ${ch('Кто вы по звёздам')}<div class=g2>${S.map((p,i)=>`<div class=p><div style="font-size:46px">${sg[i][0]}</div><h3 style="margin:6px 0">${E(p.n)}</h3><b>${sg[i][1]}</b><p class=sub style="margin:6px 0 0">${sg[i][2]}</p></div>`).join('')}</div>
 ${ch('Три карты на вашу пару','Нажмите на карту, чтобы перевернуть')}<div class=tr>${tc('Шут','Прошлое: всё началось с «'+E(cut(R.first[0]?R.first[0].t:'привета',34))+'»','🃏')}${tc(R.bars['Взаимность']>75?'Влюблённые':'Колесница','Настоящее: взаимность '+R.bars['Взаимность']+'%','💞')}${tc(fu[0],'Будущее: '+fu[1],'☀️')}</div>
 ${ch('Цифры чата')}<div class=p>${[['Сообщений',S[0].msgs,S[1].msgs],['Стикеров',S[0].stick,S[1].stick],['Фото',S[0].photo,S[1].photo],['Голосовых и кружков',S[0].voice,S[1].voice],['Сообщений со смехом',S[0].laugh,S[1].laugh],['Среднее время ответа',fmtT(S[0].mr),fmtT(S[1].mr)]].map(r=>`<div class=qt><b>${r[0]}</b><small>${E(A)}: ${r[1]}, ${E(B)}: ${r[2]}</small></div>`).join('')}</div>
-<p class=sub style="text-align:center;margin-top:30px">Анализ выполнен локально: файл не покидает ваше устройство.</p></div>`}
-const leader=(l,R)=>l<0?'Привязанность примерно равная':'Чуть сильнее вовлечён(а): '+esc(R.names[l]);
+<p class=sub style="text-align:center;margin-top:30px">Анализ выполнен локально: файл не покидает ваше устройство.</p></div>`
+}
+const leader = (l, R) => l < 0 ? 'Привязанность примерно равная' : 'Чуть сильнее вовлечён(а): ' + esc(R.names[l]);
 
-const $=s=>document.querySelector(s),sleep=ms=>new Promise(r=>setTimeout(r,ms));let CUR;function anim(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;io.unobserve(t);t.classList.add('in');if(t.classList.contains('rg')){const p=+t.dataset.p,s=performance.now(),b=t.querySelector('b'),k=n=>{const x=Math.min(1,(n-s)/1200),v=p*(1-Math.pow(1-x,3));t.style.setProperty('--p',v);b.textContent=Math.round(v)+'%';if(x<1)requestAnimationFrame(k)};requestAnimationFrame(k)}}),{threshold:.2});document.querySelectorAll('#rep .rg').forEach(r=>{r.dataset.p=parseFloat(r.style.getPropertyValue('--p'));r.style.setProperty('--p',0);io.observe(r)});document.querySelectorAll('#rep .p,#rep .bn,#rep .m').forEach(r=>{if(!r.classList.contains('m'))r.classList.add('rv');io.observe(r)})}
-$('#f').onchange=async e=>{const f=e.target.files[0];if(!f)return;$('#err').textContent='';
- try{const R=analyze(JSON.parse(await f.text()));R.D=diag(R);CUR=R;await chat(R);$('#rep').innerHTML=rep(R);anim();$('#chat').style.display='none';$('#rep').style.display='block';scrollTo(0,0)}
- catch(x){$('#up').style.display='block';$('#chat').style.display='none';$('#err').textContent='Не получилось прочитать файл: '+(x.message||'это не экспорт чата Telegram')}};
-function share(b){const R=CUR,t=`Разбор нашей переписки: совместимость ${R.compat}%, вероятность влюбиться ${R.love}%, индекс кринжа ${R.cringe}%. ${R.tot} сообщений за ${R.days} дн.`;try{navigator.clipboard.writeText(t);b.textContent='Скопировано'}catch(e){b.textContent=t}}
-async function chat(R){$('#up').style.display='none';$('#chat').style.display='flex';const box=$('#msgs'),go=$('#go'),pg=$('#pg i');box.innerHTML='';go.style.display='none';pg.style.width='8%';
- const bots=[['Скан'],['Цифра'],['Лупа']],x2=s=>s.replace(/[&<>]/g,'');
- const add=(cls,html,b)=>{const e=document.createElement('div');e.className='b '+cls;e.innerHTML=(b?`<span class=n>${b[0]}</span>`:'')+html;box.appendChild(e);e.scrollIntoView({block:'end',behavior:'smooth'});return e};
- const typing=async(ms=700)=>{const t=add('','<span class=dots></span>');await sleep(ms);t.remove()};
- await typing(500);add('','Привет! Мы уже читаем вашу переписку',bots[0]);add('','Пока ждём, сыграем? Угадай, кто из вас какой',bots[0]);
- for(const [i,q] of R.quiz.entries()){const b=bots[(i+1)%3];await typing();add('',q.q,b);
-  const who=await new Promise(res=>{const w=add('btns',R.names.map(n=>`<button>${x2(n)}</button>`).join(''));w.onclick=e=>{if(e.target.tagName=='BUTTON'){w.remove();res(e.target.textContent)}}});
-  add('me',x2(who));await typing(600);const l=q.v[0]>=q.v[1]?0:1,ok=who===R.names[l]||q.v[0]===q.v[1];
-  add('',ok?'В точку! Обожаю':'Мимо! Данные говорят другое',b);
-  add('stat',`<big>${Math.max(...q.v)} против ${Math.min(...q.v)}</big><small>${q.l}. ${x2(R.names[0])}: ${q.v[0]}, ${x2(R.names[1])}: ${q.v[1]}</small>`);pg.style.width=(8+(i+1)/R.quiz.length*84)+'%'}
- await typing(900);add('','Готово! Открывай, мы подождём',bots[0]);pg.style.width='100%';go.style.display='flex';go.scrollIntoView();await new Promise(r=>go.onclick=r)}
+const $ = s => document.querySelector(s),
+  sleep = ms => new Promise(r => setTimeout(r, ms));
+let CUR;
 
-function diag(R){
- const ms=R.ms,P=R.P,N=R.names,D=[],tot=R.tot,nm=i=>esc(N[i]),pc=v=>Math.round(v*100),sh=(x,y)=>x+y?x/(x+y):0,hi=(x,y)=>x>=y?0:1;
- const z=[0,1].map(()=>({one:0,caps:0,ign:0,qn:0,me:0,you:0,we:0,plan:0,pas:0,wc:0,u:new Set(),end:0,hr:Array(24).fill(0),wd:Array(7).fill(0),rt:[]}));
- const rx={me:/(?<![а-яё])(я|мне|меня|мной|мой|моя|моё|мои)(?![а-яё])/gi,you:/(?<![а-яё])(ты|тебе|тебя|тобой|твой|твоя|твоё|твои)(?![а-яё])/gi,we:/(?<![а-яё])(мы|нам|нас|нами|наш|наша|наше)(?![а-яё])/gi},wk=[];
- let mg=0,mw=0,mt=0;
- ms.forEach((x,k)=>{const i=x.w===P[0].id?0:1,s=z[i],t=x.t,n=ms[k+1],pv=ms[k-1],tr=t.trim();
-  if(tr&&!x.m.media_type&&!x.m.photo&&(tr.length<=3||/^(ок|окей|да|нет|ага|угу|ладно|норм|ясно|ну|понял|поняла)[.!]*$/i.test(tr)))s.one++;
-  if(/[А-ЯЁ]{4,}/.test(t)||/!{2,}/.test(t))s.caps++;
-  if(t.includes('?')){s.qn++;const y=ms.slice(k+1,k+9).find(y=>y.w!==x.w);if(!y||y.ts-x.ts>72e5)s.ign++}
-  for(const r of['me','you','we'])s[r]+=(t.match(rx[r])||[]).length;
-  if(/встрет|увидим|погуля|кино|приед|созвон|заеду|пойдём|пойдем|сходим|кафе|в гости/i.test(t))s.plan++;
-  if(/^(ладно|ничего|не важно|неважно|как хочешь|как угодно|ну окей|мне всё равно)[.…]*$|всё нормально\.?$/i.test(tr))s.pas++;
-  const w=t.toLowerCase().match(/[а-яё]{3,}/g)||[];s.wc+=w.length;w.forEach(q=>s.u.add(q));
-  s.hr[x.h]++;s.wd[new Date(x.ts).getDay()]++;const wi=Math.floor((x.ts-R.f0)/6048e5);wk[wi]=(wk[wi]||0)+1;
-  if(pv&&pv.w!==x.w&&x.ts-pv.ts<216e5)s.rt.push([x.ts,(x.ts-pv.ts)/1e3]);
-  if(!n||n.ts-x.ts>216e5)s.end++;
-  if(n&&n.ts-x.ts>mg){mg=n.ts-x.ts;mw=n.w===P[0].id?0:1;mt=x.ts}});
- const A=(g,t,l,big,txt,tip,ex)=>D.push({g,t,lvl:l,big,txt,tip,ex}),G1='Баланс и инициатива',G2='Внимание и скорость',G3='Тепло и тон',G4='Ритм и планы',G5='Язык';
- const hist=(a,lb)=>{const mx=Math.max(...a,1);return`<div class=hs>${a.map(v=>`<b style="height:${v/mx*100}%" title="${v}"></b>`).join('')}</div><div class=hl>${lb.map(x=>`<span>${x}</span>`).join('')}</div>`};
- const qt=e=>e?`<div class=qt>${esc(cut(e.t,140))}<small>${esc(e.w)}, ${fmtD(e.ts)}</small></div>`:'';
- {const s=P[0].msgs/tot,d=s>=.5?0:1,p=pc(Math.max(s,1-s)),l=p>=70?2:p>=60?1:0;A(G1,'Баланс сообщений',l,p+'%',`${nm(d)} пишет ${p}% всех сообщений (${P[d].msgs} против ${P[1-d].msgs}). ${l?'Разговор держится в основном на одном человеке.':'Вклад почти равный, это хороший знак.'}`,l&&'Тот, кто пишет меньше, может чаще начинать темы; тот, кто пишет больше, может иногда выдержать паузу и дать собеседнику ответить.')}
- {const a=P.map(p=>p.chars/p.msgs),d=hi(a[1],a[0]),r=a[d]/Math.max(a[1-d],1),l=r>=2.5?2:r>=1.7?1:0;A(G1,'Длина сообщений',l,`${Math.round(a[d])} и ${Math.round(a[1-d])} симв.`,`В среднем ${nm(d)} пишет ${Math.round(a[d])} символов за сообщение, ${nm(1-d)} ${Math.round(a[1-d])}. ${l?'Один вкладывается в текст, другой отвечает коротко: это легко читается как разная вовлечённость.':'Объём сообщений сопоставим.'}`,l&&'На длинное сообщение отвечайте не одним словом: хотя бы одно предложение и уточняющий вопрос.')}
- {const s=P.map(p=>p.starts),d=hi(s[1],s[0]),p=pc(sh(s[d],s[0]+s[1])),l=p>=75?2:p>=62?1:0;A(G1,'Кто начинает разговоры',l,`${s[0]} : ${s[1]}`,`${nm(d)} начал(а) ${s[d]} из ${s[0]+s[1]} разговоров (пауза от 6 часов считается новым разговором). ${l?'Второй человек редко пишет первым, и это обычно ощущается как неравный интерес.':'Инициатива распределена ровно.'}`,l&&'Напишите первым без повода: фото, мысль дня, смешной мем. Первый шаг должен быть общим делом.')}
- {const q=P.map((p,i)=>pc(z[i].qn/p.msgs)),d=hi(q[1],q[0]),l=q[d]>=Math.max(q[1-d],1)*2.5&&z[d].qn>=8?1:0;A(G1,'Интерес к собеседнику',l,`${q[0]}% и ${q[1]}%`,`Вопросы есть в ${q[0]}% сообщений ${nm(0)} и в ${q[1]}% сообщений ${nm(1)}. ${l?`${nm(d)} почти в одиночку проявляет любопытство, а второй в основном отвечает.`:'Интерес друг к другу взаимный.'}`,l&&'Задавайте встречные вопросы: «а у тебя как?» работает лучше, чем кажется.')}
- {const ph=[P[0].photo,P[1].photo],vo=[P[0].voice,P[1].voice],st=[P[0].stick,P[1].stick],l=ph[0]+ph[1]>=5&&Math.min(...ph)===0?1:0;A(G1,'Фото, голосовые, стикеры',l,`${ph[0]+ph[1]} фото`,`Фото: ${ph[0]} и ${ph[1]}. Голосовые и кружки: ${vo[0]} и ${vo[1]}. Стикеры: ${st[0]} и ${st[1]}. ${l?'Фото присылает только один из вас: второй остаётся зрителем.':'Форматы общения без явного перекоса.'}`,l&&'Ответьте своим кадром: обмен фото сближает быстрее слов.')}
- {const m=P.map(p=>p.mr),sl=m[0]>=m[1]?0:1,fa=1-sl,r=m[sl]/Math.max(m[fa],1),l=m[sl]>3600&&r>=2?2:r>=2&&m[sl]>600?1:0;A(G2,'Скорость ответов',l,fmtT(m[sl]),`${nm(sl)} отвечает обычно за ${fmtT(m[sl])}, ${nm(fa)} за ${fmtT(m[fa])} (медиана). ${l?'Скорость сильно отличается, и тот, кто ждёт, может решить, что им пренебрегают.':'Темп ответов близкий.'}`,l&&'Если не можете ответить сразу, одной фразой предупредите: «отвечу вечером». Это снимает тревогу ожидания.')}
- {const all=z.flatMap(s=>s.rt),mid=(R.f0+R.f1)/2,f=med(all.filter(r=>r[0]<mid).map(r=>r[1])),e=med(all.filter(r=>r[0]>=mid).map(r=>r[1])),c=f?e/f:1,l=c>=2&&e>300?2:c>=1.4&&e>120?1:0;A(G2,'Ответы замедляются?',l,`${fmtT(f)} → ${fmtT(e)}`,`В первой половине переписки на ответ уходило ${fmtT(f)}, во второй ${fmtT(e)}. ${l?'Темп падает, а это один из ранних признаков остывания.':'Темп стабилен или стал быстрее.'}`,l&&'Проговорите это прямо: «мне кажется, мы стали реже болтать, всё ок?»')}
- {const dd=mg/864e5,l=dd>=7?2:dd>=2?1:0;A(G2,'Самое долгое молчание',l,dd>=1?dd.toFixed(1)+' дн.':fmtT(mg/1000),`Самая длинная пауза началась ${fmtD(mt)}, после неё первым(ой) написал(а) ${nm(mw)}. ${l?'Долгие паузы без объяснений оставляют место для домыслов.':'Пауз длиннее пары дней не было.'}`,l&&'После долгой паузы честное «был(а) в завале» лучше, чем делать вид, что ничего не случилось.')}
- {const g=z.map(s=>s.ign),qn=z.map(s=>s.qn),r=g.map((x,i)=>x/Math.max(qn[i],1)),d=hi(r[1],r[0]),l=g[d]>=3&&r[d]>=.35?2:g[d]>=2&&r[d]>=.2?1:0;A(G2,'Вопросы без ответа',l,g[0]+g[1]+' шт.',`${nm(0)}: без ответа ${g[0]} из ${qn[0]} вопросов; ${nm(1)}: ${g[1]} из ${qn[1]} (ответа нет в течение 2 часов). ${l?'Часть вопросов тонет, а такое замечают сильнее, чем кажется.':'Вопросы обычно получают ответ.'}`,l&&'Отвечайте на вопрос сразу, даже коротко, а подробности оставьте на потом.')}
- {const o=z.map((s,i)=>pc(s.one/P[i].msgs)),d=hi(o[1],o[0]),l=o[d]>=15?2:o[d]>=8?1:0;A(G2,'Односложные ответы',l,`${o[0]}% и ${o[1]}%`,`Ответы вроде «ок», «да», «ага» составляют ${o[0]}% сообщений ${nm(0)} и ${o[1]}% сообщений ${nm(1)}.${l?' Такие ответы без продолжения закрывают тему и читаются как холодность.':''}`,l&&'Добавляйте к «ок» эмоцию или причину: «ок, звучит здорово».')}
- {const r=P.map(p=>p.run),d=hi(r[1],r[0]),l=r[d]>=10?2:r[d]>=6?1:0;A(G2,'Серии сообщений подряд',l,r[d]+' подряд',`Рекорд ${nm(d)}: ${r[d]} сообщений подряд без ответа (у ${nm(1-d)} ${r[1-d]}). ${l?'Длинные серии создают давление: собеседник не успевает вставить слово.':'Всплесков без ответа немного.'}`,l&&'Соберите мысль в одно сообщение или дождитесь ответа перед продолжением.')}
- {const e=z.map(s=>s.end),d=hi(e[1],e[0]),p=pc(sh(e[d],e[0]+e[1])),l=p>=70?1:0;A(G2,'Кто остаётся с последним словом',l,`${e[0]} : ${e[1]}`,`Последнее сообщение разговора чаще у ${nm(d)} (${e[d]} из ${e[0]+e[1]}). ${l?'Скорее всего, его слова чаще остаются без ответа.':'Разговоры заканчиваются поровну.'}`,l&&'Закрывайте разговоры тёплой фразой: «спокойной ночи», «до завтра».')}
- {const w=P.map(p=>p.aff+p.praise),d=hi(w[1],w[0]),l=w[0]+w[1]===0?2:Math.max(...w)/Math.max(Math.min(...w),1)>=4&&Math.max(...w)>=6?1:0;A(G3,'Тёплые слова и комплименты',l,`${w[0]} и ${w[1]}`,`Тёплых слов и комплиментов: ${nm(0)} ${w[0]}, ${nm(1)} ${w[1]}. ${l==2?'Их почти нет совсем: переписка выглядит сухо.':l?`Тепло идёт в основном от ${nm(d)}.`:'Тёплых слов достаточно с обеих сторон.'}`,l&&'Один искренний комплимент в день меняет тон всей переписки.')}
- {const t=P.map(p=>p.thanks),s=P.map(p=>p.sorry),l=t[0]+t[1]+s[0]+s[1]===0?1:0;A(G3,'Спасибо и «прости»',l,`${t[0]+t[1]} и ${s[0]+s[1]}`,`Благодарностей: ${nm(0)} ${t[0]}, ${nm(1)} ${t[1]}. Извинений: ${nm(0)} ${s[0]}, ${nm(1)} ${s[1]}. ${l?'Нет ни благодарностей, ни извинений: мелкие обиды могут копиться молча.':'Вежливые слова встречаются.'}`,l&&'Скажите «спасибо» за мелочь сегодня. Это самая дешёвая инвестиция в отношения.')}
- {const c=z.map((s,i)=>pc(s.caps/P[i].msgs)),d=hi(c[1],c[0]),l=c[d]>=20?2:c[d]>=10?1:0;A(G3,'Эмоциональная громкость',l,`${c[0]}% и ${c[1]}%`,`КАПС и «!!» есть в ${c[0]}% сообщений ${nm(0)} и в ${c[1]}% сообщений ${nm(1)}. ${l?'Очень высокая эмоциональность: она бывает радостной, но в споре читается как крик.':'Тон спокойный.'}`,l&&'В споре перечитайте сообщение перед отправкой и уберите заглавные.')}
- {const f=P[0].fight+P[1].fight,l=f>=5?2:f>=1?1:0;A(G3,'Резкие слова',l,f+' шт.',`Резких слов найдено: ${nm(0)} ${P[0].fight}, ${nm(1)} ${P[1].fight}. ${l?'Такие формулировки обычно ранят сильнее, чем сам повод ссоры.':'Грубостей не обнаружено, это приятно.'}`,l&&'Критикуйте поступок, а не человека: «меня задело, что…» вместо «ты всегда…».',qt(R.ex.fight[0]))}
- {const p=z.map(s=>s.pas),t=p[0]+p[1],l=t>=4?2:t>=1?1:0;A(G3,'Пассивная агрессия',l,t+' шт.',`Фразы вроде «ладно», «как хочешь», «ничего»: ${nm(0)} ${p[0]}, ${nm(1)} ${p[1]}. ${l?'Так часто звучит скрытая обида: слова мирные, а смысл нет.':'Скрытых обид в тоне не видно.'}`,l&&'Если «ладно» значит «не ладно», скажите это прямо и спокойно.')}
- {const s=z.map(q=>sh(q.me,q.me+q.you)),d=hi(s[1],s[0]),l=Math.max(z[d].me+z[d].you,0)>=10&&s[d]>=.78?1:0;A(G3,'Разговор о себе или о тебе',l,`${pc(s[0])}% и ${pc(s[1])}%`,`Доля «я/мне/меня» против «ты/тебе/тебя»: ${nm(0)} ${pc(s[0])}%, ${nm(1)} ${pc(s[1])}%. ${l?`${nm(d)} говорит в основном о себе, и собеседнику может не хватать внимания.`:'Фокус внимания распределён здорово.'}`,l&&'Переводите разговор на собеседника: «а как ты это пережил(а)?»')}
- {const w=z[0].we+z[1].we,l=w===0?1:0;A(G3,'Язык «мы»',l,w+' раз',`Слова «мы», «нам», «наш»: ${nm(0)} ${z[0].we}, ${nm(1)} ${z[1].we}. ${l?'Ни разу «мы»: вы говорите как два отдельных человека.':'Чувство общего «мы» в переписке есть.'}`,l&&'Планируйте вслух: «а давай мы…» постепенно создаёт общность.')}
- {const p=z[0].plan+z[1].plan,r=p/tot,l=p===0?2:r<.02?1:0;A(G4,'Планы и живые встречи',l,p+' раз',`Разговоров про встречи, прогулки и созвоны: ${p} (${nm(0)} ${z[0].plan}, ${nm(1)} ${z[1].plan}). ${l?'Живых планов почти нет: переписка может застрять в чате.':'Вы регулярно говорите о реальных встречах.'}`,l&&'Предложите конкретное: дату и место, а не «как-нибудь встретимся».')}
- {const n=P.map(p=>p.night/p.msgs),d=hi(n[1],n[0]),l=n[d]>=.2?2:n[d]>=.1?1:0;A(G4,'Ночной режим',l,`${pc(n[0])}% и ${pc(n[1])}%`,`Доля сообщений с 00:00 до 05:00: ${nm(0)} ${pc(n[0])}%, ${nm(1)} ${pc(n[1])}%. ${l?'Много ночных сообщений: переписка ест сон, а лучшие разговоры не всегда происходят в 3 часа ночи.':'Ночью вы почти не переписываетесь.'}`,l&&'Договоритесь о «тихих часах»: после полуночи только срочное.')}
- {const h=z[0].hr.map((v,i)=>v+z[1].hr[i]),pk=h.indexOf(Math.max(...h));A(G4,'Карта активности по часам',0,pk+':00',`Пик переписки приходится на ${pk}:00. Каждый столбик ниже показывает сообщения за час суток от 0 до 23.`,0,hist(h,['0','6','12','18','23']))}
- {const w=z[0].wd.map((v,i)=>v+z[1].wd[i]),o=[1,2,3,4,5,6,0].map(i=>w[i]),pk=o.indexOf(Math.max(...o)),we=pc((w[6]+w[0])/tot);A(G4,'Дни недели',0,['Пн','Вт','Ср','Чт','Пт','Сб','Вс'][pk],`Самый активный день: ${['понедельник','вторник','среда','четверг','пятница','суббота','воскресенье'][pk]}. На выходные приходится ${we}% сообщений.`,0,hist(o,['Пн','Вт','Ср','Чт','Пт','Сб','Вс']))}
- {const nw=Math.floor((R.f1-R.f0)/6048e5)+1,a=Array.from({length:nw},(_,i)=>wk[i]||0),l2=a.slice(-2).reduce((x,y)=>x+y,0)/2,rest=a.slice(0,-2),av=rest.length?rest.reduce((x,y)=>x+y,0)/rest.length:0,r=av?l2/av:1,l=nw>=6&&r<.4?2:nw>=6&&r<.7?1:0;A(G4,'Динамика по неделям',l,pc(r)+'% от нормы',`За последние две недели в среднем ${Math.round(l2)} сообщений в неделю при обычных ${Math.round(av)}. ${l?'Переписка затухает.':'Активность держится на привычном уровне.'}`,l&&'Если затухание не случайно, лучше поговорить голосом, чем ждать, пока всё сойдёт на нет.',hist(a,['старт','сейчас']))}
- {const tp=p=>Object.entries(p.words).sort((x,y)=>y[1]-x[1]).slice(0,40).map(e=>e[0]),a=new Set(tp(P[0])),b=tp(P[1]),i=b.filter(x=>a.has(x)).length,j=i/Math.max(a.size+b.length-i,1),l=a.size>=20&&b.length>=20&&j<.1?1:0;A(G5,'Зеркальность речи',l,pc(j)+'%',`Общих слов в топ-40 каждого: ${i}. ${l?'Вы говорите на разных языках: общих любимых слов почти нет.':'У вас есть общий словарь, а это признак близости.'}`,l&&'Пара общих шуток или «своих слов» очень сближает.')}
- {const u=z.map(s=>s.u.size);A(G5,'Богатство речи',0,`${u[0]} и ${u[1]}`,`Уникальных слов: ${nm(0)} ${u[0]}, ${nm(1)} ${u[1]}. Любимое слово ${nm(0)}: «${esc(P[0].top[0])}», ${nm(1)}: «${esc(P[1].top[0])}».`,0)}
- return D}
-function diagHTML(R){const D=R.D,L=['Норма','Внимание','Тревога'],b=D.filter(d=>d.lvl==2),w=D.filter(d=>d.lvl==1),sc=Math.max(5,Math.min(99,100-b.length*8-w.length*3)),vd=sc>=80?'Переписка здорова':sc>=60?'Есть над чем поработать':'Переписка требует внимания',tp=[...b,...w].slice(0,6),col=sc>=80?'#1fae82':sc>=60?'#f5a623':'#ef4565';
- let h=`<i id=s2></i><div class=bn style="--g:#1fae82,#5b8cff"><span class=be>🩺</span><h2>Что не так в вашей переписке</h2></div><p class=sub>${D.length} проверок. Каждая показывает цифры, объясняет, что они значат, и подсказывает, что делать.</p><div class="p sm"><div class=rg style="--p:${sc};--c:${col}"><b>${sc}%</b></div><div><h3>${vd}</h3><span class=bd style="--c:#ef4565">${b.length} тревог</span> <span class=bd style="--c:#f5a623">${w.length} предупреждений</span> <span class=bd style="--c:#1fae82">${D.length-b.length-w.length} в норме</span><ul>${tp.length?tp.map(d=>`<li>${d.lvl==2?'🔴':'🟡'} <b>${d.t}</b>: ${d.big}</li>`).join(''):'<li>Серьёзных проблем не нашли.</li>'}</ul></div></div>`;
- [...new Set(D.map(d=>d.g))].forEach(g=>{h+=`<h3 class=gh>${g}</h3>`+D.filter(d=>d.g===g).map(d=>`<div class="p dg l${d.lvl}"><div class=dh><h3>${d.t}</h3><span class=bd>${L[d.lvl]}</span></div><div class=dbig>${d.big}</div><p>${d.txt}</p>${d.ex||''}${d.tip?`<div class=tp><b>Что делать:</b> ${d.tip}</div>`:''}</div>`).join('')});
- return h}
+function anim() {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const t = e.target;
+    io.unobserve(t);
+    t.classList.add('in');
+    if (t.classList.contains('rg')) {
+      const p = +t.dataset.p,
+        s = performance.now(),
+        b = t.querySelector('b'),
+        k = n => {
+          const x = Math.min(1, (n - s) / 1200),
+            v = p * (1 - Math.pow(1 - x, 3));
+          t.style.setProperty('--p', v);
+          b.textContent = Math.round(v) + '%';
+          if (x < 1) requestAnimationFrame(k)
+        };
+      requestAnimationFrame(k)
+    }
+  }), {
+    threshold: .2
+  });
+  document.querySelectorAll('#rep .rg').forEach(r => {
+    r.dataset.p = parseFloat(r.style.getPropertyValue('--p'));
+    r.style.setProperty('--p', 0);
+    io.observe(r)
+  });
+  document.querySelectorAll('#rep .p,#rep .bn,#rep .m').forEach(r => {
+    if (!r.classList.contains('m')) r.classList.add('rv');
+    io.observe(r)
+  })
+}
+$('#f').onchange = async e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  $('#err').textContent = '';
+  try {
+    const R = analyze(JSON.parse(await f.text()));
+    R.D = diag(R);
+    R.S = status(R);
+    R.C = compat2(R);
+    R.LL = loveLang(R);
+    CUR = R;
+    await chat(R);
+    $('#rep').innerHTML = rep(R);
+    anim();
+    $('#chat').style.display = 'none';
+    $('#rep').style.display = 'block';
+    scrollTo(0, 0)
+  } catch (x) {
+    $('#up').style.display = 'block';
+    $('#chat').style.display = 'none';
+    $('#err').textContent = 'Не получилось прочитать файл: ' + (x.message || 'это не экспорт чата Telegram')
+  }
+};
 
+function share(b) {
+  const R = CUR,
+    t = `Разбор нашей переписки: совместимость ${R.compat}%, вероятность влюбиться ${R.love}%, индекс кринжа ${R.cringe}%. ${R.tot} сообщений за ${R.days} дн.`;
+  try {
+    navigator.clipboard.writeText(t);
+    b.textContent = 'Скопировано'
+  } catch (e) {
+    b.textContent = t
+  }
+}
+async function chat(R) {
+  $('#up').style.display = 'none';
+  $('#chat').style.display = 'flex';
+  const box = $('#msgs'),
+    go = $('#go'),
+    pg = $('#pg i');
+  box.innerHTML = '';
+  go.style.display = 'none';
+  pg.style.width = '8%';
+  const bots = [
+      ['Скан'],
+      ['Цифра'],
+      ['Лупа']
+    ],
+    x2 = s => s.replace(/[&<>]/g, '');
+  const add = (cls, html, b) => {
+    const e = document.createElement('div');
+    e.className = 'b ' + cls;
+    e.innerHTML = (b ? `<span class=n>${b[0]}</span>` : '') + html;
+    box.appendChild(e);
+    e.scrollIntoView({
+      block: 'end',
+      behavior: 'smooth'
+    });
+    return e
+  };
+  const typing = async (ms = 700) => {
+    const t = add('', '<span class=dots></span>');
+    await sleep(ms);
+    t.remove()
+  };
+  await typing(500);
+  add('', 'Привет! Мы уже читаем вашу переписку', bots[0]);
+  add('', 'Пока ждём, сыграем? Угадай, кто из вас какой', bots[0]);
+  for (const [i, q] of R.quiz.entries()) {
+    const b = bots[(i + 1) % 3];
+    await typing();
+    add('', q.q, b);
+    const who = await new Promise(res => {
+      const w = add('btns', R.names.map(n => `<button>${x2(n)}</button>`).join(''));
+      w.onclick = e => {
+        if (e.target.tagName == 'BUTTON') {
+          w.remove();
+          res(e.target.textContent)
+        }
+      }
+    });
+    add('me', x2(who));
+    await typing(600);
+    const l = q.v[0] >= q.v[1] ? 0 : 1,
+      ok = who === R.names[l] || q.v[0] === q.v[1];
+    add('', ok ? 'В точку! Обожаю' : 'Мимо! Данные говорят другое', b);
+    add('stat', `<big>${Math.max(...q.v)} против ${Math.min(...q.v)}</big><small>${q.l}. ${x2(R.names[0])}: ${q.v[0]}, ${x2(R.names[1])}: ${q.v[1]}</small>`);
+    pg.style.width = (8 + (i + 1) / R.quiz.length * 84) + '%'
+  }
+  await typing(900);
+  add('', 'Готово! Открывай, мы подождём', bots[0]);
+  pg.style.width = '100%';
+  go.style.display = 'flex';
+  go.scrollIntoView();
+  await new Promise(r => go.onclick = r)
+}
+
+function diag(R) {
+  const ms = R.ms,
+    P = R.P,
+    N = R.names,
+    D = [],
+    tot = R.tot,
+    nm = i => esc(N[i]),
+    pc = v => Math.round(v * 100),
+    sh = (x, y) => x + y ? x / (x + y) : 0,
+    hi = (x, y) => x >= y ? 0 : 1;
+  const z = [0, 1].map(() => ({
+    one: 0,
+    caps: 0,
+    ign: 0,
+    qn: 0,
+    me: 0,
+    you: 0,
+    we: 0,
+    plan: 0,
+    pas: 0,
+    wc: 0,
+    u: new Set(),
+    end: 0,
+    hr: Array(24).fill(0),
+    wd: Array(7).fill(0),
+    rt: []
+  }));
+  const rx = {
+      me: /(?<![а-яё])(я|мне|меня|мной|мой|моя|моё|мои)(?![а-яё])/gi,
+      you: /(?<![а-яё])(ты|тебе|тебя|тобой|твой|твоя|твоё|твои)(?![а-яё])/gi,
+      we: /(?<![а-яё])(мы|нам|нас|нами|наш|наша|наше)(?![а-яё])/gi
+    },
+    wk = [];
+  let mg = 0,
+    mw = 0,
+    mt = 0;
+  ms.forEach((x, k) => {
+    const i = x.w === P[0].id ? 0 : 1,
+      s = z[i],
+      t = x.t,
+      n = ms[k + 1],
+      pv = ms[k - 1],
+      tr = t.trim();
+    if (tr && !x.m.media_type && !x.m.photo && (tr.length <= 3 || /^(ок|окей|да|нет|ага|угу|ладно|норм|ясно|ну|понял|поняла)[.!]*$/i.test(tr))) s.one++;
+    if (/[А-ЯЁ]{4,}/.test(t) || /!{2,}/.test(t)) s.caps++;
+    if (t.includes('?')) {
+      s.qn++;
+      const y = ms.slice(k + 1, k + 9).find(y => y.w !== x.w);
+      if (!y || y.ts - x.ts > 72e5) s.ign++
+    }
+    for (const r of ['me', 'you', 'we']) s[r] += (t.match(rx[r]) || []).length;
+    if (/встрет|увидим|погуля|кино|приед|созвон|заеду|пойдём|пойдем|сходим|кафе|в гости/i.test(t)) s.plan++;
+    if (/^(ладно|ничего|не важно|неважно|как хочешь|как угодно|ну окей|мне всё равно)[.…]*$|всё нормально\.?$/i.test(tr)) s.pas++;
+    const w = t.toLowerCase().match(/[а-яё]{3,}/g) || [];
+    s.wc += w.length;
+    w.forEach(q => s.u.add(q));
+    s.hr[x.h]++;
+    s.wd[new Date(x.ts).getDay()]++;
+    const wi = Math.floor((x.ts - R.f0) / 6048e5);
+    wk[wi] = (wk[wi] || 0) + 1;
+    if (pv && pv.w !== x.w && x.ts - pv.ts < 216e5) s.rt.push([x.ts, (x.ts - pv.ts) / 1e3]);
+    if (!n || n.ts - x.ts > 216e5) s.end++;
+    if (n && n.ts - x.ts > mg) {
+      mg = n.ts - x.ts;
+      mw = n.w === P[0].id ? 0 : 1;
+      mt = x.ts
+    }
+  });
+  const A = (g, t, l, big, txt, tip, ex) => D.push({
+      g,
+      t,
+      lvl: l,
+      big,
+      txt,
+      tip,
+      ex
+    }),
+    G1 = 'Баланс и инициатива',
+    G2 = 'Внимание и скорость',
+    G3 = 'Тепло и тон',
+    G4 = 'Ритм и планы',
+    G5 = 'Язык';
+  const hist = (a, lb) => {
+    const mx = Math.max(...a, 1);
+    return `<div class=hs>${a.map(v=>`<b style="height:${v/mx*100}%" title="${v}"></b>`).join('')}</div><div class=hl>${lb.map(x=>`<span>${x}</span>`).join('')}</div>`
+  };
+  const qt = e => e ? `<div class=qt>${esc(cut(e.t,140))}<small>${esc(e.w)}, ${fmtD(e.ts)}</small></div>` : '';
+  {
+    const s = P[0].msgs / tot,
+      d = s >= .5 ? 0 : 1,
+      p = pc(Math.max(s, 1 - s)),
+      l = p >= 70 ? 2 : p >= 60 ? 1 : 0;
+    A(G1, 'Баланс сообщений', l, p + '%', `${nm(d)} пишет ${p}% всех сообщений (${P[d].msgs} против ${P[1-d].msgs}). ${l?'Разговор держится в основном на одном человеке.':'Вклад почти равный, это хороший знак.'}`, l && 'Тот, кто пишет меньше, может чаще начинать темы; тот, кто пишет больше, может иногда выдержать паузу и дать собеседнику ответить.')
+  } {
+    const a = P.map(p => p.chars / p.msgs),
+      d = hi(a[1], a[0]),
+      r = a[d] / Math.max(a[1 - d], 1),
+      l = r >= 2.5 ? 2 : r >= 1.7 ? 1 : 0;
+    A(G1, 'Длина сообщений', l, `${Math.round(a[d])} и ${Math.round(a[1-d])} симв.`, `В среднем ${nm(d)} пишет ${Math.round(a[d])} символов за сообщение, ${nm(1-d)} ${Math.round(a[1-d])}. ${l?'Один вкладывается в текст, другой отвечает коротко: это легко читается как разная вовлечённость.':'Объём сообщений сопоставим.'}`, l && 'На длинное сообщение отвечайте не одним словом: хотя бы одно предложение и уточняющий вопрос.')
+  } {
+    const s = P.map(p => p.starts),
+      d = hi(s[1], s[0]),
+      p = pc(sh(s[d], s[0] + s[1])),
+      l = p >= 75 ? 2 : p >= 62 ? 1 : 0;
+    A(G1, 'Кто начинает разговоры', l, `${s[0]} : ${s[1]}`, `${nm(d)} начал(а) ${s[d]} из ${s[0]+s[1]} разговоров (пауза от 6 часов считается новым разговором). ${l?'Второй человек редко пишет первым, и это обычно ощущается как неравный интерес.':'Инициатива распределена ровно.'}`, l && 'Напишите первым без повода: фото, мысль дня, смешной мем. Первый шаг должен быть общим делом.')
+  } {
+    const q = P.map((p, i) => pc(z[i].qn / p.msgs)),
+      d = hi(q[1], q[0]),
+      l = q[d] >= Math.max(q[1 - d], 1) * 2.5 && z[d].qn >= 8 ? 1 : 0;
+    A(G1, 'Интерес к собеседнику', l, `${q[0]}% и ${q[1]}%`, `Вопросы есть в ${q[0]}% сообщений ${nm(0)} и в ${q[1]}% сообщений ${nm(1)}. ${l?`${nm(d)} почти в одиночку проявляет любопытство, а второй в основном отвечает.`:'Интерес друг к другу взаимный.'}`, l && 'Задавайте встречные вопросы: «а у тебя как?» работает лучше, чем кажется.')
+  } {
+    const ph = [P[0].photo, P[1].photo],
+      vo = [P[0].voice, P[1].voice],
+      st = [P[0].stick, P[1].stick],
+      l = ph[0] + ph[1] >= 5 && Math.min(...ph) === 0 ? 1 : 0;
+    A(G1, 'Фото, голосовые, стикеры', l, `${ph[0]+ph[1]} фото`, `Фото: ${ph[0]} и ${ph[1]}. Голосовые и кружки: ${vo[0]} и ${vo[1]}. Стикеры: ${st[0]} и ${st[1]}. ${l?'Фото присылает только один из вас: второй остаётся зрителем.':'Форматы общения без явного перекоса.'}`, l && 'Ответьте своим кадром: обмен фото сближает быстрее слов.')
+  } {
+    const m = P.map(p => p.mr),
+      sl = m[0] >= m[1] ? 0 : 1,
+      fa = 1 - sl,
+      r = m[sl] / Math.max(m[fa], 1),
+      l = m[sl] > 3600 && r >= 2 ? 2 : r >= 2 && m[sl] > 600 ? 1 : 0;
+    A(G2, 'Скорость ответов', l, fmtT(m[sl]), `${nm(sl)} отвечает обычно за ${fmtT(m[sl])}, ${nm(fa)} за ${fmtT(m[fa])} (медиана). ${l?'Скорость сильно отличается, и тот, кто ждёт, может решить, что им пренебрегают.':'Темп ответов близкий.'}`, l && 'Если не можете ответить сразу, одной фразой предупредите: «отвечу вечером». Это снимает тревогу ожидания.')
+  } {
+    const all = z.flatMap(s => s.rt),
+      mid = (R.f0 + R.f1) / 2,
+      f = med(all.filter(r => r[0] < mid).map(r => r[1])),
+      e = med(all.filter(r => r[0] >= mid).map(r => r[1])),
+      c = f ? e / f : 1,
+      l = c >= 2 && e > 300 ? 2 : c >= 1.4 && e > 120 ? 1 : 0;
+    A(G2, 'Ответы замедляются?', l, `${fmtT(f)} → ${fmtT(e)}`, `В первой половине переписки на ответ уходило ${fmtT(f)}, во второй ${fmtT(e)}. ${l?'Темп падает, а это один из ранних признаков остывания.':'Темп стабилен или стал быстрее.'}`, l && 'Проговорите это прямо: «мне кажется, мы стали реже болтать, всё ок?»')
+  } {
+    const dd = mg / 864e5,
+      l = dd >= 7 ? 2 : dd >= 2 ? 1 : 0;
+    A(G2, 'Самое долгое молчание', l, dd >= 1 ? dd.toFixed(1) + ' дн.' : fmtT(mg / 1000), `Самая длинная пауза началась ${fmtD(mt)}, после неё первым(ой) написал(а) ${nm(mw)}. ${l?'Долгие паузы без объяснений оставляют место для домыслов.':'Пауз длиннее пары дней не было.'}`, l && 'После долгой паузы честное «был(а) в завале» лучше, чем делать вид, что ничего не случилось.')
+  } {
+    const g = z.map(s => s.ign),
+      qn = z.map(s => s.qn),
+      r = g.map((x, i) => x / Math.max(qn[i], 1)),
+      d = hi(r[1], r[0]),
+      l = g[d] >= 3 && r[d] >= .35 ? 2 : g[d] >= 2 && r[d] >= .2 ? 1 : 0;
+    A(G2, 'Вопросы без ответа', l, g[0] + g[1] + ' шт.', `${nm(0)}: без ответа ${g[0]} из ${qn[0]} вопросов; ${nm(1)}: ${g[1]} из ${qn[1]} (ответа нет в течение 2 часов). ${l?'Часть вопросов тонет, а такое замечают сильнее, чем кажется.':'Вопросы обычно получают ответ.'}`, l && 'Отвечайте на вопрос сразу, даже коротко, а подробности оставьте на потом.')
+  } {
+    const o = z.map((s, i) => pc(s.one / P[i].msgs)),
+      d = hi(o[1], o[0]),
+      l = o[d] >= 15 ? 2 : o[d] >= 8 ? 1 : 0;
+    A(G2, 'Односложные ответы', l, `${o[0]}% и ${o[1]}%`, `Ответы вроде «ок», «да», «ага» составляют ${o[0]}% сообщений ${nm(0)} и ${o[1]}% сообщений ${nm(1)}.${l?' Такие ответы без продолжения закрывают тему и читаются как холодность.':''}`, l && 'Добавляйте к «ок» эмоцию или причину: «ок, звучит здорово».')
+  } {
+    const r = P.map(p => p.run),
+      d = hi(r[1], r[0]),
+      l = r[d] >= 10 ? 2 : r[d] >= 6 ? 1 : 0;
+    A(G2, 'Серии сообщений подряд', l, r[d] + ' подряд', `Рекорд ${nm(d)}: ${r[d]} сообщений подряд без ответа (у ${nm(1-d)} ${r[1-d]}). ${l?'Длинные серии создают давление: собеседник не успевает вставить слово.':'Всплесков без ответа немного.'}`, l && 'Соберите мысль в одно сообщение или дождитесь ответа перед продолжением.')
+  } {
+    const e = z.map(s => s.end),
+      d = hi(e[1], e[0]),
+      p = pc(sh(e[d], e[0] + e[1])),
+      l = p >= 70 ? 1 : 0;
+    A(G2, 'Кто остаётся с последним словом', l, `${e[0]} : ${e[1]}`, `Последнее сообщение разговора чаще у ${nm(d)} (${e[d]} из ${e[0]+e[1]}). ${l?'Скорее всего, его слова чаще остаются без ответа.':'Разговоры заканчиваются поровну.'}`, l && 'Закрывайте разговоры тёплой фразой: «спокойной ночи», «до завтра».')
+  } {
+    const w = P.map(p => p.aff + p.praise),
+      d = hi(w[1], w[0]),
+      l = w[0] + w[1] === 0 ? 2 : Math.max(...w) / Math.max(Math.min(...w), 1) >= 4 && Math.max(...w) >= 6 ? 1 : 0;
+    A(G3, 'Тёплые слова и комплименты', l, `${w[0]} и ${w[1]}`, `Тёплых слов и комплиментов: ${nm(0)} ${w[0]}, ${nm(1)} ${w[1]}. ${l==2?'Их почти нет совсем: переписка выглядит сухо.':l?`Тепло идёт в основном от ${nm(d)}.`:'Тёплых слов достаточно с обеих сторон.'}`, l && 'Один искренний комплимент в день меняет тон всей переписки.')
+  } {
+    const t = P.map(p => p.thanks),
+      s = P.map(p => p.sorry),
+      l = t[0] + t[1] + s[0] + s[1] === 0 ? 1 : 0;
+    A(G3, 'Спасибо и «прости»', l, `${t[0]+t[1]} и ${s[0]+s[1]}`, `Благодарностей: ${nm(0)} ${t[0]}, ${nm(1)} ${t[1]}. Извинений: ${nm(0)} ${s[0]}, ${nm(1)} ${s[1]}. ${l?'Нет ни благодарностей, ни извинений: мелкие обиды могут копиться молча.':'Вежливые слова встречаются.'}`, l && 'Скажите «спасибо» за мелочь сегодня. Это самая дешёвая инвестиция в отношения.')
+  } {
+    const c = z.map((s, i) => pc(s.caps / P[i].msgs)),
+      d = hi(c[1], c[0]),
+      l = c[d] >= 20 ? 2 : c[d] >= 10 ? 1 : 0;
+    A(G3, 'Эмоциональная громкость', l, `${c[0]}% и ${c[1]}%`, `КАПС и «!!» есть в ${c[0]}% сообщений ${nm(0)} и в ${c[1]}% сообщений ${nm(1)}. ${l?'Очень высокая эмоциональность: она бывает радостной, но в споре читается как крик.':'Тон спокойный.'}`, l && 'В споре перечитайте сообщение перед отправкой и уберите заглавные.')
+  } {
+    const f = P[0].fight + P[1].fight,
+      l = f >= 5 ? 2 : f >= 1 ? 1 : 0;
+    A(G3, 'Резкие слова', l, f + ' шт.', `Резких слов найдено: ${nm(0)} ${P[0].fight}, ${nm(1)} ${P[1].fight}. ${l?'Такие формулировки обычно ранят сильнее, чем сам повод ссоры.':'Грубостей не обнаружено, это приятно.'}`, l && 'Критикуйте поступок, а не человека: «меня задело, что…» вместо «ты всегда…».', qt(R.ex.fight[0]))
+  } {
+    const p = z.map(s => s.pas),
+      t = p[0] + p[1],
+      l = t >= 4 ? 2 : t >= 1 ? 1 : 0;
+    A(G3, 'Пассивная агрессия', l, t + ' шт.', `Фразы вроде «ладно», «как хочешь», «ничего»: ${nm(0)} ${p[0]}, ${nm(1)} ${p[1]}. ${l?'Так часто звучит скрытая обида: слова мирные, а смысл нет.':'Скрытых обид в тоне не видно.'}`, l && 'Если «ладно» значит «не ладно», скажите это прямо и спокойно.')
+  } {
+    const s = z.map(q => sh(q.me, q.me + q.you)),
+      d = hi(s[1], s[0]),
+      l = Math.max(z[d].me + z[d].you, 0) >= 10 && s[d] >= .78 ? 1 : 0;
+    A(G3, 'Разговор о себе или о тебе', l, `${pc(s[0])}% и ${pc(s[1])}%`, `Доля «я/мне/меня» против «ты/тебе/тебя»: ${nm(0)} ${pc(s[0])}%, ${nm(1)} ${pc(s[1])}%. ${l?`${nm(d)} говорит в основном о себе, и собеседнику может не хватать внимания.`:'Фокус внимания распределён здорово.'}`, l && 'Переводите разговор на собеседника: «а как ты это пережил(а)?»')
+  } {
+    const w = z[0].we + z[1].we,
+      l = w === 0 ? 1 : 0;
+    A(G3, 'Язык «мы»', l, w + ' раз', `Слова «мы», «нам», «наш»: ${nm(0)} ${z[0].we}, ${nm(1)} ${z[1].we}. ${l?'Ни разу «мы»: вы говорите как два отдельных человека.':'Чувство общего «мы» в переписке есть.'}`, l && 'Планируйте вслух: «а давай мы…» постепенно создаёт общность.')
+  } {
+    const p = z[0].plan + z[1].plan,
+      r = p / tot,
+      l = p === 0 ? 2 : r < .02 ? 1 : 0;
+    A(G4, 'Планы и живые встречи', l, p + ' раз', `Разговоров про встречи, прогулки и созвоны: ${p} (${nm(0)} ${z[0].plan}, ${nm(1)} ${z[1].plan}). ${l?'Живых планов почти нет: переписка может застрять в чате.':'Вы регулярно говорите о реальных встречах.'}`, l && 'Предложите конкретное: дату и место, а не «как-нибудь встретимся».')
+  } {
+    const n = P.map(p => p.night / p.msgs),
+      d = hi(n[1], n[0]),
+      l = n[d] >= .2 ? 2 : n[d] >= .1 ? 1 : 0;
+    A(G4, 'Ночной режим', l, `${pc(n[0])}% и ${pc(n[1])}%`, `Доля сообщений с 00:00 до 05:00: ${nm(0)} ${pc(n[0])}%, ${nm(1)} ${pc(n[1])}%. ${l?'Много ночных сообщений: переписка ест сон, а лучшие разговоры не всегда происходят в 3 часа ночи.':'Ночью вы почти не переписываетесь.'}`, l && 'Договоритесь о «тихих часах»: после полуночи только срочное.')
+  } {
+    const h = z[0].hr.map((v, i) => v + z[1].hr[i]),
+      pk = h.indexOf(Math.max(...h));
+    A(G4, 'Карта активности по часам', 0, pk + ':00', `Пик переписки приходится на ${pk}:00. Каждый столбик ниже показывает сообщения за час суток от 0 до 23.`, 0, hist(h, ['0', '6', '12', '18', '23']))
+  } {
+    const w = z[0].wd.map((v, i) => v + z[1].wd[i]),
+      o = [1, 2, 3, 4, 5, 6, 0].map(i => w[i]),
+      pk = o.indexOf(Math.max(...o)),
+      we = pc((w[6] + w[0]) / tot);
+    A(G4, 'Дни недели', 0, ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'][pk], `Самый активный день: ${['понедельник','вторник','среда','четверг','пятница','суббота','воскресенье'][pk]}. На выходные приходится ${we}% сообщений.`, 0, hist(o, ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']))
+  } {
+    const nw = Math.floor((R.f1 - R.f0) / 6048e5) + 1,
+      a = Array.from({
+        length: nw
+      }, (_, i) => wk[i] || 0),
+      l2 = a.slice(-2).reduce((x, y) => x + y, 0) / 2,
+      rest = a.slice(0, -2),
+      av = rest.length ? rest.reduce((x, y) => x + y, 0) / rest.length : 0,
+      r = av ? l2 / av : 1,
+      l = nw >= 6 && r < .4 ? 2 : nw >= 6 && r < .7 ? 1 : 0;
+    A(G4, 'Динамика по неделям', l, pc(r) + '% от нормы', `За последние две недели в среднем ${Math.round(l2)} сообщений в неделю при обычных ${Math.round(av)}. ${l?'Переписка затухает.':'Активность держится на привычном уровне.'}`, l && 'Если затухание не случайно, лучше поговорить голосом, чем ждать, пока всё сойдёт на нет.', hist(a, ['старт', 'сейчас']))
+  } {
+    const tp = p => Object.entries(p.words).sort((x, y) => y[1] - x[1]).slice(0, 40).map(e => e[0]),
+      a = new Set(tp(P[0])),
+      b = tp(P[1]),
+      i = b.filter(x => a.has(x)).length,
+      j = i / Math.max(a.size + b.length - i, 1),
+      l = a.size >= 20 && b.length >= 20 && j < .1 ? 1 : 0;
+    A(G5, 'Зеркальность речи', l, pc(j) + '%', `Общих слов в топ-40 каждого: ${i}. ${l?'Вы говорите на разных языках: общих любимых слов почти нет.':'У вас есть общий словарь, а это признак близости.'}`, l && 'Пара общих шуток или «своих слов» очень сближает.')
+  } {
+    const u = z.map(s => s.u.size);
+    A(G5, 'Богатство речи', 0, `${u[0]} и ${u[1]}`, `Уникальных слов: ${nm(0)} ${u[0]}, ${nm(1)} ${u[1]}. Любимое слово ${nm(0)}: «${esc(P[0].top[0])}», ${nm(1)}: «${esc(P[1].top[0])}».`, 0)
+  }
+  return D
+}
+
+function diagHTML(R) {
+  const D = R.D,
+    L = ['Норма', 'Внимание', 'Тревога'],
+    b = D.filter(d => d.lvl == 2),
+    w = D.filter(d => d.lvl == 1),
+    sc = Math.max(5, Math.min(99, 100 - b.length * 8 - w.length * 3)),
+    vd = sc >= 80 ? 'Переписка здорова' : sc >= 60 ? 'Есть над чем поработать' : 'Переписка требует внимания',
+    tp = [...b, ...w].slice(0, 6),
+    col = sc >= 80 ? '#1fae82' : sc >= 60 ? '#f5a623' : '#ef4565';
+  let h = `<i id=s2></i><div class=bn style="--g:#1fae82,#5b8cff"><span class=be>🩺</span><h2>Что не так в вашей переписке</h2></div><p class=sub>${D.length} проверок. Каждая показывает цифры, объясняет, что они значат, и подсказывает, что делать.</p><div class="p sm"><div class=rg style="--p:${sc};--c:${col}"><b>${sc}%</b></div><div><h3>${vd}</h3><span class=bd style="--c:#ef4565">${b.length} тревог</span> <span class=bd style="--c:#f5a623">${w.length} предупреждений</span> <span class=bd style="--c:#1fae82">${D.length-b.length-w.length} в норме</span><ul>${tp.length?tp.map(d=>`<li>${d.lvl==2?'🔴':'🟡'} <b>${d.t}</b>: ${d.big}</li>`).join(''):'<li>Серьёзных проблем не нашли.</li>'}</ul></div></div>`;
+  [...new Set(D.map(d => d.g))].forEach(g => {
+    h += `<h3 class=gh>${g}</h3>` + D.filter(d => d.g === g).map(d => `<div class="p dg l${d.lvl}"><div class=dh><h3>${d.t}</h3><span class=bd>${L[d.lvl]}</span></div><div class=dbig>${d.big}</div><p>${d.txt}</p>${d.ex||''}${d.tip?`<div class=tp><b>Что делать:</b> ${d.tip}</div>`:''}</div>`).join('')
+  });
+  return h
+}
+
+const STS = [{
+  e: '🤝',
+  n: 'Знакомые',
+  d: 'Общение нейтральное и сдержанное: мало тёплых слов, больше дел и фактов.',
+  x: 'Чтобы сблизиться, задавайте открытые вопросы о том, что человеку важно, и делитесь своим.'
+}, {
+  e: '🫶',
+  n: 'Друзья',
+  d: 'Много юмора и лёгкости, тепла достаточно, но романтических сигналов почти нет.',
+  x: 'Чтобы дружба стала глубже, говорите о чувствах и планах, а не только о делах и мемах.'
+}, {
+  e: '✨',
+  n: 'Друзья с искрой',
+  d: 'Дружеский тон, в котором уже проскакивают нежность, ночные разговоры и флирт.',
+  x: 'Если это взаимно, сделайте шаг: пригласите на живую встречу и скажите прямо, что вам нравится.'
+}, {
+  e: '💘',
+  n: 'Флирт и влюблённость',
+  d: 'Много нежных слов, эмодзи и ритуалов вроде «доброе утро». Похоже на начало романа.',
+  x: 'Не торопите события, но и не прячьтесь за шутками: назначьте свидание и скажите, что чувствуете.'
+}, {
+  e: '💑',
+  n: 'Пара',
+  d: 'Частые «люблю» и «скучаю», ритуалы, ночные разговоры и язык «мы»: типичная переписка пары.',
+  x: 'Берегите ритуалы и обсуждайте будущее вслух: общие планы укрепляют пару лучше подарков.'
+}, {
+  e: '💍',
+  n: 'Семья или женаты',
+  d: 'Много быта: дом, ужин, счета, дети или ремонт, при этом тепло сохраняется.',
+  x: 'В быту легко потерять нежность: выделите время только для вас двоих без бытовых вопросов.'
+}, {
+  e: '💼',
+  n: 'Коллеги',
+  d: 'Рабочие слова, формальный тон и мало личного.',
+  x: 'Если хочется большего, начните с личных тем вне задач: обеды, увлечения, музыка.'
+}];
+const LANGS = {
+  'Слова': {
+    rx: /люблю|обожаю|ценю|горжусь|молодец|умниц|классн|круто|красив|спасиб|скучаю/i,
+    adv: 'Говорите тёплое вслух и письменно: комплименты, «я ценю», «мне с тобой хорошо».'
+  },
+  'Время': {
+    rx: /встрет|созвон|вместе|приезжай|приеду|посидим|погуляем|давай .*(созвон|погуля)/i,
+    adv: 'Назначайте конкретное время вдвоём: звонок, прогулка, фильм без телефона.'
+  },
+  'Забота': {
+    rx: /помог|сделаю|сделал|принес|привез|купил|заказал|отвез|заберу|приготов|накормл/i,
+    adv: 'Показывайте любовь делом: помочь, принести, решить мелкую проблему без просьбы.'
+  },
+  'Подарки': {
+    rx: /подар|сюрприз|презент|принесу тебе|куплю тебе/i,
+    adv: 'Мелкие знаки внимания: открытка, любимый десерт, вещь «просто так».'
+  },
+  'Касания': {
+    rx: /обним|целую|чмок|поцел|прижм|🫂|😘|💋|гладь/i,
+    adv: 'Тёплые знаки близости: объятия при встрече, нежные эмодзи, «обнимаю» в конце дня.'
+  }
+};
+
+function status(R) {
+  const t = R.ms.map(x => x.t).join('\n').toLowerCase(),
+    tot = R.tot,
+    c = r => (t.match(r) || []).length,
+    pr = r => c(r) / tot * 100;
+  const f = {
+    rom: pr(/люблю|любим|обожаю|скучаю|целую|чмок|обним|котик|зайка|зай(?![а-яё])|малыш|солныш|милый|милая|родной|родная/g),
+    ily: pr(/люблю тебя|я тебя люблю|love you/g),
+    fl: pr(/😘|😍|🥰|😻|💋|😏|свидани|красив(ая|ый)|хочу тебя|❤|💕|💞|💖|🫶/g),
+    fam: pr(/(?<![а-яё])(муж|мужа|мужу|жена|жену|жены)(?![а-яё])|ребён|ребенк|дети|детей|дочь|ипотек|квартир|ужин|садик|коммунал|кредит|ремонт|домой/g),
+    wk: pr(/проект|дедлайн|отч[её]т|клиент|созвон|задач|договор|заказ|правки|макет|коллег|зарплат|начальник/g),
+    fo: pr(/(?<![а-яё])(вы|вас|вам|вами|ваш|ваша|здравствуйте)(?![а-яё])/g),
+    rit: pr(/доброе утро|спокойной ночи|споки|сладких снов|приятного аппетита|как спалось/g),
+    fr: pr(/ахах|хах|лол|кек|бро(?![а-яё])|чел(?![а-яё])|мем|рофл|подруг|друг(?![а-яё])/g),
+    we: pr(/(?<![а-яё])(мы|нам|нас|наш|наша|наше)(?![а-яё])/g),
+    nt: R.nightT / tot * 100,
+    mpd: tot / R.days
+  };
+  const s = [
+    Math.max(0, 30 - Math.min(26, f.mpd * 3) + f.fo * 3 - f.rom * 5 - f.fl * 3),
+    16 + f.fr * 3 + f.rom * .8 + Math.min(10, f.mpd) + R.bars['Общий юмор'] / 10,
+    6 + f.fl * 2.2 + f.rom * 2.4 + f.nt * .35 + f.rit * 2 + R.bars['Теплота'] / 12,
+    f.fl * 3 + f.rom * 3.5 + f.ily * 6 + f.rit * 2.5 - f.fam * 2 - f.fr * .4,
+    f.ily * 16 + f.rom * 5 + f.fl * 2 + f.rit * 4 + f.we * 3 + f.nt * .25 + (f.mpd > 15 ? 5 : 0) - f.fr * .4,
+    f.fam * 9 + f.ily * 7 + f.rom * 2 + f.rit * 3 + f.we * 4 - f.fr * .3,
+    f.wk * 14 + f.fo * 6 - f.rom * 8 - f.fl * 6
+  ];
+  const mx = Math.max(...s),
+    ex = s.map(v => Math.exp((v - mx) / 16)),
+    sm = ex.reduce((a, b) => a + b, 0),
+    p = ex.map(v => v / sm),
+    ti = p.indexOf(Math.max(...p));
+  return {
+    f,
+    s,
+    p,
+    ti,
+    top: {
+      ...STS[ti],
+      p: Math.min(92, Math.round(p[ti] * 100))
+    }
+  };
+}
+
+function compat2(R) {
+  const P = R.P,
+    B = R.bars,
+    hrs = [0, 1].map(() => Array(24).fill(0));
+  R.ms.forEach(x => hrs[x.w === P[0].id ? 0 : 1][x.h]++);
+  const cos = (a, b) => {
+    let d = 0,
+      x = 0,
+      y = 0;
+    a.forEach((v, i) => {
+      d += v * b[i];
+      x += v * v;
+      y += b[i] * b[i];
+    });
+    return d / Math.sqrt(x * y || 1);
+  };
+  const rh = cos(hrs[0], hrs[1]),
+    sp = P[0].mr && P[1].mr ? Math.min(P[0].mr, P[1].mr) / Math.max(P[0].mr, P[1].mr) : .5,
+    tw = p => Object.entries(p.words).sort((a, b) => b[1] - a[1]).slice(0, 40).map(e => e[0]),
+    A = new Set(tw(P[0])),
+    W = tw(P[1]),
+    ov = W.filter(x => A.has(x)).length,
+    j = ov / Math.max(A.size + W.length - ov, 1),
+    al = P.map(p => p.chars / p.msgs),
+    len = Math.min(...al) / Math.max(...al, 1);
+  return [
+    ['Эмоции', B['Теплота']],
+    ['Юмор', B['Общий юмор']],
+    ['Ритм', cl(rh * 60 + sp * 40)],
+    ['Баланс', B['Взаимность']],
+    ['Глубина', cl(len * 60 + Math.min(40, (al[0] + al[1]) / 4))],
+    ['Доверие', B['Доверие']],
+    ['Общий язык', cl(j * 400 + 20)],
+    ['Романтика', R.love]
+  ];
+}
+
+function loveLang(R) {
+  const sc = [0, 1].map(() => Object.fromEntries(Object.keys(LANGS).map(k => [k, 0])));
+  R.ms.forEach(x => {
+    const i = x.w === R.P[0].id ? 0 : 1;
+    for (const k in LANGS)
+      if (LANGS[k].rx.test(x.t)) sc[i][k]++;
+  });
+  return sc;
+}
+
+function radar(a) {
+  const n = a.length,
+    pt = (i, v) => {
+      const g = -Math.PI / 2 + i * 2 * Math.PI / n;
+      return [150 + Math.cos(g) * v * 1.05, 150 + Math.sin(g) * v * 1.05];
+    };
+  const grid = [25, 50, 75, 100].map(v => `<polygon points="${a.map((_, i) => pt(i, v).map(q => q.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="var(--ln)"/>`).join('');
+  const axes = a.map((_, i) => `<line x1="150" y1="150" x2="${pt(i, 100)[0].toFixed(1)}" y2="${pt(i, 100)[1].toFixed(1)}" stroke="var(--ln)"/>`).join('');
+  const poly = a.map((x, i) => pt(i, x[1]).map(q => q.toFixed(1)).join(',')).join(' ');
+  const dots = a.map((x, i) => `<circle cx="${pt(i, x[1])[0].toFixed(1)}" cy="${pt(i, x[1])[1].toFixed(1)}" r="4.5" fill="#fff" stroke="#ff4f87" stroke-width="2.5"/>`).join('');
+  const lbl = a.map((x, i) => {
+    const [px, py] = pt(i, 124);
+    return `<text x="${px.toFixed(1)}" y="${py.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="700" fill="var(--mu)" font-family="Onest,sans-serif">${x[0]}</text>`;
+  }).join('');
+  return `<svg viewBox="-10 -10 320 320" class="rd" role="img" aria-label="Радар совместимости"><defs><linearGradient id="rf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b6cf6" stop-opacity=".55"/><stop offset="1" stop-color="#ff4f87" stop-opacity=".55"/></linearGradient></defs>${grid}${axes}<polygon points="${poly}" fill="url(#rf)" stroke="#ff4f87" stroke-width="2.5" stroke-linejoin="round"/>${dots}${lbl}</svg>`;
+}
+
+function links(C) {
+  const v = Object.fromEntries(C),
+    L = [];
+  if (v['Баланс'] >= 75 && v['Эмоции'] < 45) L.push(['Баланс', 'Эмоции', 'Много равенства и мало нежности: переписка уходит в дружескую зону. Добавьте тёплые слова.']);
+  if (v['Эмоции'] >= 60 && v['Баланс'] < 60) L.push(['Эмоции', 'Баланс', 'Тепло есть, но вклад неравный: один тянет разговор, второй в основном отвечает.']);
+  if (v['Юмор'] >= 55 && v['Доверие'] >= 55) L.push(['Юмор', 'Доверие', 'Смех плюс доверие — лучшая основа для близости.']);
+  if (v['Ритм'] < 50) L.push(['Ритм', 'Баланс', 'Вы пишете в разное время и с разной скоростью: договоритесь о «часах связи».']);
+  if (v['Глубина'] < 50) L.push(['Глубина', 'Эмоции', 'Разговоры скользят по поверхности: задавайте вопросы про чувства и планы.']);
+  if (v['Общий язык'] < 40) L.push(['Общий язык', 'Юмор', 'Мало общих слов и шуток: заведите «свои» словечки и ритуалы.']);
+  if (v['Романтика'] >= 60 && v['Доверие'] >= 55) L.push(['Романтика', 'Доверие', 'Романтика опирается на доверие, и это устойчивая комбинация.']);
+  if (v['Романтика'] < 40 && v['Эмоции'] >= 50) L.push(['Романтика', 'Эмоции', 'Тепло есть, а романтических сигналов мало: это дружба или осторожность.']);
+  if (!L.length) L.push(['Баланс', 'Ритм', 'Показатели идут ровно, явных перекосов не видно.']);
+  return L;
+}
+
+function statusHTML(R) {
+  const S = R.S,
+    f = S.f,
+    E = esc,
+    top = S.top,
+    lad = ['Знакомство', 'Дружба', 'Флирт', 'Пара', 'Семья'],
+    ai = [0, 1, 1, 2, 3, 4, -1][S.ti];
+  const ev = [
+    ['Тёплых слов на 100 сообщений', f.rom],
+    ['Флирта и нежных эмодзи', f.fl],
+    ['Ритуалов «доброе утро» и «спокойной ночи»', f.rit],
+    ['Слов про быт и семью', f.fam],
+    ['Рабочих слов', f.wk],
+    ['Обращений на «вы»', f.fo],
+    ['Дружеского юмора', f.fr],
+    ['Слов «мы» и «нам»', f.we]
+  ];
+  return `<i id="s5"></i><div class="bn" style="--g:#ff4f87,#8b2fc9"><span class="be">💘</span><h2>Ваш статус отношений</h2></div>
+<p class="sub">Определяем по тону, словам и ритуалам переписки. Это оценка по формулам, а не приговор: настоящий статус знаете только вы.</p>
+<div class="p stx"><div class="sbig">${top.e}</div><h3>${top.n}</h3><p>${top.d}</p><span class="conf">Уверенность ${top.p}%</span></div>
+<div class="p"><h3>Лестница отношений</h3><div class="ld">${lad.map((x, i) => `<div class="ls ${ai >= i ? 'on' : ''} ${ai === i ? 'cur' : ''}"><i>${i + 1}</i><span>${x}</span></div>`).join('')}</div>${ai < 0 ? '<p class="sub" style="margin:12px 0 0">Преобладает деловой тон, поэтому ступени личных отношений не отмечены.</p>' : ''}</div>
+<div class="p"><h3>Вероятности по типам отношений</h3>${STS.map((x, i) => `<div class="pb ${i === S.ti ? 'top' : ''}"><span>${x.e} ${x.n}</span><i><b style="width:${Math.max(2, Math.round(S.p[i] * 100))}%"></b></i><span>${Math.round(S.p[i] * 100)}%</span></div>`).join('')}</div>
+<div class="p"><h3>Что мы увидели</h3><div class="evg">${ev.map(([k, v]) => `<div class="evc"><b>${v.toFixed(1)}</b><span>${k}</span></div>`).join('')}</div></div>
+<div class="p nx"><h3>Следующий шаг</h3><p>${top.x}</p></div>`;
+}
+
+function compatHTML(R) {
+  const C = R.C,
+    E = esc,
+    avg = Math.round(C.reduce((a, b) => a + b[1], 0) / C.length),
+    L = links(C),
+    ks = Object.keys(LANGS);
+  const cm = v => v >= 75 ? 'сильная сторона' : v >= 50 ? 'в норме' : 'зона роста';
+  const ll = R.LL.map((s, i) => {
+    const mx = Math.max(...ks.map(k => s[k])),
+      tk = ks.find(k => s[k] === mx);
+    return `<div class="p llc"><h3>${E(R.names[i])}</h3>${mx ? `<span class="bd" style="--c:#ff4f87">Главный язык: ${tk}</span>${ks.map(k => `<div class="m"><span>${k}</span><i><b style="width:${s[k] / mx * 100}%"></b></i><span>${s[k]}</span></div>`).join('')}<p class="sub" style="margin:8px 0 0">${LANGS[tk].adv}</p>` : '<p class="sub">Выраженных сигналов не найдено.</p>'}</div>`;
+  });
+  const tops = R.LL.map(s => {
+    const mx = Math.max(...ks.map(k => s[k]));
+    return mx ? ks.find(k => s[k] === mx) : null;
+  });
+  return `<i id="s6"></i><div class="bn" style="--g:#6a3df0,#22b8cf"><span class="be">🧬</span><h2>Лаборатория совместимости</h2></div>
+<p class="sub">Восемь осей совместимости, связи между ними и языки любви каждого из вас.</p>
+<div class="p rdp">${radar(C)}<div class="avg"><b>${avg}%</b><span>средняя совместимость по осям</span></div></div>
+<div class="p">${C.map(([k, v]) => `<div class="m"><span>${k}</span><i><b style="width:${v}%"></b></i><span>${v}</span></div><p class="cmt">${cm(v)}</p>`).join('')}</div>
+<h3 class="gh">Связи между показателями</h3>${L.map(([a, b, t]) => `<div class="p lk"><div class="lkc"><span>${a}</span><i>⟷</i><span>${b}</span></div><p>${t}</p></div>`).join('')}
+<h3 class="gh">Языки любви</h3><div class="g1">${ll.join('')}</div>
+<div class="p nx"><h3>${tops[0] && tops[0] === tops[1] ? 'Ваши языки любви совпадают' : 'Ваши языки любви разные'}</h3><p>${tops[0] && tops[1] ? (tops[0] === tops[1] ? `Вы оба лучше всего выражаете любовь через «${tops[0]}»: вы легко понимаете друг друга.` : `${E(R.names[0])} выражает любовь через «${tops[0]}», ${E(R.names[1])} через «${tops[1]}». Попробуйте говорить на языке партнёра: так тепло доходит точнее.`) : 'Сигналов мало, чтобы сравнить языки любви.'}</p></div>`;
+}
+
+function planHTML(R) {
+  const E = esc,
+    N = R.names.map(E),
+    iss = R.D.filter(d => d.lvl > 0 && d.tip).sort((a, b) => b.lvl - a.lvl).slice(0, 5),
+    good = R.D.filter(d => d.lvl === 0 && ['Баланс сообщений', 'Тёплые слова и комплименты', 'Вопросы без ответа', 'Скорость ответов', 'Язык «мы»', 'Резкие слова', 'Пассивная агрессия', 'Кто начинает разговоры'].includes(d.t)).slice(0, 5);
+  const days = [
+    iss[0] ? `${iss[0].t}. ${iss[0].tip}` : 'Скажите друг другу, что вам нравится в вашем общении.',
+    iss[1] ? `${iss[1].t}. ${iss[1].tip}` : 'Отправьте искренний комплимент без повода.',
+    'Задайте три вопроса, на которые нельзя ответить «да» или «нет».',
+    'Предложите конкретный план: дата, время и место.',
+    'Позвоните голосом или отправьте голосовое вместо текста.',
+    'Вспомните общую шутку или момент и вернитесь к нему.',
+    `${N[0]} и ${N[1]}: обсудите, чего вам обоим хочется в ближайший месяц.`
+  ];
+  return `<i id="s7"></i><div class="bn" style="--g:#1fae82,#ff9a6c"><span class="be">🛠️</span><h2>Как всё улучшить</h2></div>
+<p class="sub">Рекомендации собраны из самых слабых мест вашей переписки и из вашего статуса.</p>
+<div class="p nx"><h3>Главная цель для вашего статуса «${R.S.top.n}»</h3><p>${R.S.top.x}</p></div>
+${iss.length ? `<h3 class="gh">Что подтянуть в первую очередь</h3>${iss.map(d => `<div class="p dg l${d.lvl}"><div class="dh"><h3>${d.t}</h3><span class="bd">${d.lvl === 2 ? 'Важно' : 'Желательно'}</span></div><p>${d.big}</p><div class="tp"><b>Как улучшить:</b> ${d.tip}</div></div>`).join('')}` : '<div class="p"><h3>Серьёзных проблем нет</h3><p class="sub">Продолжайте в том же духе и берегите ритуалы.</p></div>'}
+${good.length ? `<h3 class="gh">Ваши сильные стороны</h3><div class="p">${good.map(d => `<div class="qt"><b>${d.t}</b><small>${d.big}</small></div>`).join('')}</div>` : ''}
+<h3 class="gh">План на неделю</h3><div class="pl">${days.map((t, i) => `<div class="pd"><i>${i + 1}</i><div><b>День ${i + 1}</b><p>${t}</p></div></div>`).join('')}</div>`;
+}
 </script>
 </body></html>
